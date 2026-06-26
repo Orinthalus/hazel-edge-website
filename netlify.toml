@@ -1,0 +1,38 @@
+[build]
+  publish = "."
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-Content-Type-Options = "nosniff"
+
+[[redirects]]
+  from = "/stay"
+  to = "/stay/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/explore"
+  to = "/explore/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/nature"
+  to = "/nature/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/story"
+  to = "/story/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/sustainability"
+  to = "/sustainability/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/faqs"
+  to = "/faqs/index.html"
+  status = 200
