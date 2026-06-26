@@ -1,0 +1,172 @@
+/* HAZEL EDGE IMAGE STYLES */
+/* Lodgify CDN Images */
+
+/* HOMEPAGE HERO */
+.hero {
+  min-height: 100vh;
+  background-image: url('https://l.icdbcdn.com/oh/1f9e6f67-fab8-4e11-95dc-cf37fc3cc0b3.jpg?w=1920');
+  background-size: cover;
+  background-position: center 60%;
+  background-repeat: no-repeat;
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  padding: 0 3rem 6rem;
+}
+.hero::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, rgba(30,28,25,0.15) 0%, rgba(30,28,25,0.5) 65%, rgba(30,28,25,0.75) 100%);
+  pointer-events: none;
+}
+.hero-content { position: relative; z-index: 2; }
+.hero-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(3.5rem, 7vw, 6rem);
+  font-weight: 300;
+  color: #FAF7F2;
+  letter-spacing: 0.02em;
+  margin-bottom: 0.5rem;
+}
+.hero-subtitle {
+  font-size: 1rem;
+  color: rgba(250,247,242,0.78);
+  letter-spacing: 0.08em;
+  margin-bottom: 2rem;
+  font-family: 'Jost', sans-serif;
+  font-weight: 300;
+}
+.btn-primary {
+  background: rgba(250,247,242,0.12);
+  border: 1px solid rgba(250,247,242,0.45);
+  color: #FAF7F2;
+  display: inline-block;
+  text-decoration: none;
+  font-family: 'Jost', sans-serif;
+  font-size: 0.78rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  padding: 0.85rem 2.2rem;
+  border-radius: 2px;
+  transition: background 0.3s, border-color 0.3s;
+}
+.btn-primary:hover { background: rgba(250,247,242,0.22); border-color: rgba(250,247,242,0.75); }
+
+/* NAV ON HERO */
+nav:not(.scrolled):not(.opaque) .nav-logo { color: rgba(250,247,242,0.92) !important; }
+nav:not(.scrolled):not(.opaque) .nav-links a { color: rgba(250,247,242,0.78) !important; }
+nav:not(.scrolled):not(.opaque) { background: transparent !important; }
+
+/* HOMEPAGE WELCOME IMAGE */
+.img-placeholder.img-main {
+  height: 440px;
+  background-image: url('https://l.icdbcdn.com/oh/44747096-9fb6-4bcc-8392-bb1f16f18318.jpg?w=900');
+  background-size: cover;
+  background-position: center;
+  border-radius: 4px;
+  overflow: hidden;
+  box-shadow: 0 8px 40px rgba(0,0,0,0.14);
+}
+.img-placeholder.img-main span { display: none; }
+
+/* STAY PAGE - ROOM IMAGES */
+.room-img {
+  width: 100%;
+  height: 260px;
+  background-size: cover;
+  background-position: center;
+  border-radius: 4px;
+  margin-bottom: 1.5rem;
+}
+.room-img.living-room {
+  background-image: url('https://l.icdbcdn.com/oh/1f9e6f67-fab8-4e11-95dc-cf37fc3cc0b3.jpg?w=800');
+  background-position: center 30%;
+}
+.room-img.kitchen-room {
+  background-image: url('https://l.icdbcdn.com/oh/f3777dd8-6270-41fe-830d-00674a0718a2.jpg?w=800');
+}
+.room-img.bedroom1 {
+  background-image: url('https://l.icdbcdn.com/oh/44747096-9fb6-4bcc-8392-bb1f16f18318.jpg?w=800');
+  background-position: center 25%;
+}
+.room-img.bedroom2 {
+  background-image: url('https://l.icdbcdn.com/oh/d72a9436-470f-405f-a9d6-634008d5d792.jpg?w=800');
+  background-position: center 30%;
+}
+.room-img.bedroom3 {
+  background-image: url('https://l.icdbcdn.com/oh/419c953d-fc74-4c7d-9c6c-4ff213570f51.jpg?w=800');
+}
+.room-img.wetroom {
+  background-image: url('https://l.icdbcdn.com/oh/f3777dd8-6270-41fe-830d-00674a0718a2.jpg?w=800');
+  background-position: center 40%;
+}
+.dogs-img-stay {
+  width: 100%;
+  height: 420px;
+  background-image: url('https://l.icdbcdn.com/oh/f3777dd8-6270-41fe-830d-00674a0718a2.jpg?w=1200');
+  background-size: cover;
+  background-position: center;
+  border-radius: 4px;
+  margin: 2rem 0;
+}
+
+/* NATURE PAGE */
+.nature-img-main {
+  width: 100%;
+  height: 500px;
+  background-image: url('https://l.icdbcdn.com/oh/419c953d-fc74-4c7d-9c6c-4ff213570f51.jpg?w=1200');
+  background-size: cover;
+  background-position: center;
+  border-radius: 4px;
+  margin-bottom: 3rem;
+}
+.woodland-img {
+  width: 100%;
+  height: 380px;
+  background-image: url('https://l.icdbcdn.com/oh/d72a9436-470f-405f-a9d6-634008d5d792.jpg?w=1000');
+  background-size: cover;
+  background-position: center;
+  border-radius: 4px;
+}
+
+/* EXPLORE PAGE */
+.channel-img {
+  width: 100%;
+  height: 420px;
+  background-image: url('https://l.icdbcdn.com/oh/f3777dd8-6270-41fe-830d-00674a0718a2.jpg?w=1200');
+  background-size: cover;
+  background-position: center;
+  border-radius: 4px;
+  margin-bottom: 3rem;
+}
+
+/* STORY PAGE */
+.story-img {
+  width: 100%;
+  height: 500px;
+  background-image: url('https://l.icdbcdn.com/oh/44747096-9fb6-4bcc-8392-bb1f16f18318.jpg?w=1200');
+  background-size: cover;
+  background-position: center;
+  border-radius: 4px;
+  margin-bottom: 3rem;
+}
+.hazel-img {
+  width: 100%;
+  height: 360px;
+  background-image: url('https://l.icdbcdn.com/oh/1f9e6f67-fab8-4e11-95dc-cf37fc3cc0b3.jpg?w=800');
+  background-size: cover;
+  background-position: center 30%;
+  border-radius: 4px;
+}
+
+/* SUSTAINABILITY PAGE */
+.sustain-img {
+  width: 100%;
+  height: 420px;
+  background-image: url('https://l.icdbcdn.com/oh/419c953d-fc74-4c7d-9c6c-4ff213570f51.jpg?w=1200');
+  background-size: cover;
+  background-position: center;
+  border-radius: 4px;
+  margin-bottom: 3rem;
+}
