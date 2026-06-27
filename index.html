@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hazel Edge - Holiday Bungalow, Nicholforest</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+  <style>
+    /* ===== Booking Section Layout ===== */
+    .booking-section { padding: 5rem 0; background: #f9f6f1; }
+    .booking-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      margin-top: 2.5rem;
+      align-items: start;
+    }
+    @media (max-width: 768px) {
+      .booking-grid { grid-template-columns: 1fr; }
+    }
+    .panel-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.4rem;
+      color: #2d5a3d;
+      margin-bottom: 1rem;
+    }
+    .booking-intro {
+      color: #555;
+      margin-bottom: 1.2rem;
+      font-size: 1rem;
+    }
+
+    /* ===== Availability Calendar ===== */
+    .calendar-panel { background: #fff; border-radius: 10px; padding: 1.5rem; box-shadow: 0 2px 16px rgba(0,0,0,0.07); }
+    .calendar-legend { display: flex; gap: 1.2rem; margin-bottom: 1rem; flex-wrap: wrap; }
+    .legend-item { display: flex; align-items: center; gap: 0.4rem; font-size: 0.85rem; color: #555; }
+    .legend-dot { width: 12px; height: 12px; border-radius: 50%; display: inline-block; }
+    .legend-dot.available { background: #4a7c59; }
+    .legend-dot.unavailable { background: #c0392b; }
+    .legend-dot.selected { background: #2d5a3d; }
+    .calendar-note { font-size: 0.8rem; color: #888; margin-top: 0.8rem; }
+
+    .cal-month-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.8rem;
+    }
+    .cal-month-name { font-family: 'Playfair Display', serif; font-size: 1.1rem; color: #2d5a3d; font-weight: 600; }
+    .cal-nav {
+      background: none;
+      border: 1px solid #4a7c59;
+      color: #4a7c59;
+      border-radius: 4px;
+      width: 28px;
+      height: 28px;
+      cursor: pointer;
+      font-size: 1.1rem;
+      line-height: 1;
+      padding: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .cal-nav:hover { background: #4a7c59; color: #fff; }
+
+    .cal-grid {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      gap: 2px;
+    }
+    .cal-dow {
+      text-align: center;
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: #888;
+      padding: 4px 0;
+    }
+    .cal-cell {
+      text-align: center;
+      padding: 7px 4px;
+      font-size: 0.85rem;
+      border-radius: 4px;
+      cursor: default;
+      min-height: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .cal-cell.empty { background: transparent; }
+    .cal-cell.past { color: #ccc; }
+    .cal-cell.unavailable { background: #fde8e8; color: #c0392b; text-decoration: line-through; }
+    .cal-cell.available { background: #e8f5ed; color: #2d5a3d; cursor: pointer; font-weight: 500; }
+    .cal-cell.available:hover { background: #4a7c59; color: #fff; }
+    .cal-cell.selected { background: #2d5a3d !important; color: #fff !important; }
+    .cal-cell.in-range { background: #c8e6d0 !important; color: #2d5a3d !important; }
+
+    /* ===== Booking Panel ===== */
+    .booking-panel { background: #fff; border-radius: 10px; padding: 1.5rem; box-shadow: 0 2px 16px rgba(0,0,0,0.07); }
+    .booking-channels { margin-top: 1.5rem; padding-top: 1rem; border-top: 1px solid #eee; }
+    .channels-note { font-size: 0.85rem; color: #888; margin-bottom: 0.6rem; }
+    .channel-links { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .channel-link {
+      display: inline-block;
+      padding: 6px 16px;
+      border-radius: 4px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      text-decoration: none;
+      border: 1px solid #ddd;
+      color: #555;
+      transition: all 0.2s;
+    }
+    .channel-link:hover { border-color: #4a7c59; color: #4a7c59; }
+
+    /* Lodgify widget overrides */
+    :root {
+      --ldg-bnb-background: #f9f6f1;
+      --ldg-bnb-border-radius: 6px;
+      --ldg-bnb-box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+      --ldg-bnb-padding: 14px;
+      --ldg-bnb-input-background: #ffffff;
+      --ldg-bnb-button-border-radius: 4px;
+      --ldg-bnb-color-primary: #4a7c59;
+      --ldg-bnb-color-primary-lighter: #6aad80;
+      --ldg-bnb-color-primary-darker: #2d5a3d;
+      --ldg-bnb-color-primary-contrast: #ffffff;
+      --ldg-component-calendar-cell-selection-bg-color: #4a7c59;
+      --ldg-component-calendar-cell-selection-color: #ffffff;
+      --ldg-component-calendar-cell-selected-bg-color: #c8e6d0;
+      --ldg-component-calendar-cell-selected-color: #2d5a3d;
+      --ldg-bnb-font-family: 'Lato', sans-serif;
+    }
+    #lodgify-book-now-box { width: 100%; }
+  </style>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Orinthalus/hazel-edge-website@main/images.css"><style>
+.page-hero.light-bg,
+.page-hero.dark-bg {
+  background-image: url('https://l.icdbcdn.com/oh/1f9e6f67-fab8-4e11-95dc-cf37fc3cc0b3.jpg?w=1600');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.slow-days {
+  background-image: url('https://l.icdbcdn.com/oh/44747096-9fb6-4bcc-8392-bb1f16f18318.jpg?w=1600');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+</style></head>
+<body>
+
+  <nav class="main-nav">
+    <div class="nav-brand">
+      <a href='/'><span class="brand-name">Hazel Edge</span></a>
+    </div>
+    <ul class="nav-links">
+      <li><a href='/stay'>Stay</a></li>
+      <li><a href='/explore'>Explore</a></li>
+      <li><a href='/nature'>Nature</a></li>
+      <li><a href='/story'>Our Story</a></li>
+      <li><a href='/sustainability'>Sustainability</a></li>
+      <li><a href='/faqs'>FAQs</a></li>
+      <li><a href="#booking" class="nav-cta">Book Now</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger">&#9776;</button>
+  </nav>
+
+  <section class="hero" id="home">
+    <div class="hero-content">
+      <h1 class="hero-title">Hazel Edge</h1>
+      <p class="hero-subtitle">A hidden gem in the Liddesdale Valley, Nicholforest</p>
+      <a href="#booking" class="btn btn-primary">Check Availability</a>
+    </div>
+  </section>
+
+  <section class="welcome" id="welcome">
+    <div class="container">
+      <div class="welcome-grid">
+        <div class="welcome-text">
+          <h2>Welcome to Hazel Edge</h2>
+          <p>Nestled in the ancient woodland of Nicholforest on the Scottish border, Hazel Edge is a beautifully restored traditional bungalow offering a true escape from the everyday. Surrounded by wildlife-rich land, ancient oaks, and the sounds of the River Liddel, this is a place to breathe deeply and reconnect with the natural world.</p>
+          <p>Sleeping up to 6 guests, with 3 bedrooms and ample outdoor space, Hazel Edge is perfect for families, friends, and those seeking a genuine countryside retreat. Dogs are warmly welcome.</p>
+          <a class='btn btn-outline' href='/stay'>Explore the Property</a>
+        </div>
+        <div class="welcome-images">
+          <div class="image-stack">
+            <div class="img-placeholder img-main"><span>Hazel Edge Bungalow</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="highlights" id="highlights">
+    <div class="container">
+      <h2 class="section-title">Why Hazel Edge?</h2>
+      <div class="highlights-grid">
+        <div class="highlight-card">
+          <div class="highlight-icon">&#127807;</div>
+          <h3>Ancient Woodland</h3>
+          <p>Step out into one of England's last great ancient oak woodlands. Red squirrels, otters, and countless bird species await.</p>
+        </div>
+        <div class="highlight-card">
+          <div class="highlight-icon">&#127968;</div>
+          <h3>Beautifully Restored</h3>
+          <p>A traditional stone bungalow lovingly restored with period character and modern comforts. Sleeps up to 6 guests.</p>
+        </div>
+        <div class="highlight-card">
+          <div class="highlight-icon">&#128021;</div>
+          <h3>Dog Friendly</h3>
+          <p>Dogs are warmly welcomed at Hazel Edge. With acres of open countryside and woodland walks on your doorstep.</p>
+        </div>
+        <div class="highlight-card">
+          <div class="highlight-icon">&#127755;</div>
+          <h3>Dark Sky Country</h3>
+          <p>Far from light pollution, the night skies above Nicholforest are extraordinary. Step outside on a clear night.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="booking-section" id="booking">
+    <div class="container">
+      <h2 class="section-title">Book Your Stay</h2>
+      <p class="section-subtitle">Check availability and book directly &#8212; no booking fees</p>
+      <div class="booking-grid">
+
+        <div class="calendar-panel">
+          <h3 class="panel-title">&#128197; Availability</h3>
+          <div class="calendar-legend">
+            <span class="legend-item"><span class="legend-dot available"></span>Available</span>
+            <span class="legend-item"><span class="legend-dot unavailable"></span>Booked</span>
+          </div>
+          <div class="calendar-container" id="calendarContainer"></div>
+          <p class="calendar-note">&#9432; Availability shown is indicative &#8212; confirm via booking</p>
+        </div>
+
+        <div class="booking-panel">
+          <h3 class="panel-title">&#128204; Reserve Your Dates</h3>
+          <p class="booking-intro">From <strong>&#163;170</strong> per night &middot; Sleeps up to 6 &middot; Dogs welcome</p>
+          <div id="lodgify-book-now-box"
+            data-rental-id="817885"
+            data-website-id="661234"
+            data-slug="austin-ahart"
+            data-language-code="en"
+            data-new-tab="true"
+            data-version="stable"
+            data-has-guests-breakdown=""
+            data-check-in-label="Check-in"
+            data-check-out-label="Check-out"
+            data-guests-label="Guests"
+            data-guests-singular-label="{{NumberOfGuests}} guest"
+            data-guests-plural-label="{{NumberOfGuests}} guests"
+            data-total-price-label="Total price:"
+            data-select-dates-to-see-price-label="Select dates to see total price"
+            data-minimum-price-per-night-first-label="From"
+            data-minimum-price-per-night-second-label="per night"
+            data-book-button-label="Book Now">
+          </div>
+          <script src="https://app.lodgify.com/book-now-box/stable/renderBookNowBox.js" defer></script>
+          <div class="booking-channels">
+            <p class="channels-note">Also bookable via:</p>
+            <div class="channel-links">
+              <a href="https://www.airbnb.co.uk" target="_blank" class="channel-link">Airbnb</a>
+              <a href="https://www.booking.com" target="_blank" class="channel-link">Booking.com</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="location-section" id="location">
+    <div class="container">
+      <div class="location-grid">
+        <div class="location-text">
+          <h2>Getting Here</h2>
+          <p>Hazel Edge is located in Nicholforest, on the English-Scottish border. Set in the beautiful Liddesdale Valley, just a short drive from the market town of Langholm.</p>
+          <ul class="location-list">
+            <li>&#128205; Nicholforest, Carlisle CA6 6BT</li>
+            <li>&#128664; 30 minutes from Carlisle</li>
+            <li>&#128664; 45 minutes from Gretna Green</li>
+            <li>&#128664; 2.5 hours from Edinburgh</li>
+            <li>&#128664; 2.5 hours from Manchester</li>
+          </ul>
+          <a class='btn btn-outline' href='/explore'>Explore the Area</a>
+        </div>
+        <div class="location-map">
+          <div class="map-placeholder">
+            <p>&#128205; Nicholforest, Carlisle CA6 6BT</p>
+            <p>Near the English-Scottish border</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="main-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <h3>Hazel Edge</h3>
+          <p>A hidden gem in the Liddesdale Valley</p>
+          <p>Nicholforest, Carlisle CA6 6BT</p>
+        </div>
+        <div class="footer-links">
+          <h4>Explore</h4>
+          <ul>
+            <li><a href='/stay'>The Bungalow</a></li>
+            <li><a href='/explore'>The Area</a></li>
+            <li><a href='/nature'>Nature &amp; Wildlife</a></li>
+            <li><a href='/story'>Our Story</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h4>Information</h4>
+          <ul>
+            <li><a href='/sustainability'>Sustainability</a></li>
+            <li><a href='/faqs'>FAQs</a></li>
+            <li><a href="#booking">Book Now</a></li>
+          </ul>
+        </div>
+        <div class="footer-contact">
+          <h4>Contact</h4>
+          <p>For group bookings or extended stays, please get in touch via Airbnb or Booking.com.</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 Hazel Edge. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const UNAVAIL_RANGES=[
+      {start:'2026-07-05',end:'2026-07-18'},
+      {start:'2026-07-25',end:'2026-08-08'},
+      {start:'2026-08-15',end:'2026-08-29'}
+    ];
+    let selStart=null,selEnd=null,hoverDt=null,curY,curM;
+    function fmt(d){return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0');}
+    function parse(s){const[y,m,d]=s.split('-').map(Number);return new Date(y,m-1,d);}
+    function isUnavail(d){const s=fmt(d);return UNAVAIL_RANGES.some(r=>s>=r.start&&s<=r.end);}
+    function isPast(d){const t=new Date();t.setHours(0,0,0,0);return d<t;}
+    function inRng(d){if(!selStart)return false;const c=selEnd||hoverDt;if(!c)return false;const[a,b]=selStart<=c?[selStart,c]:[c,selStart];return d>a&&d<b;}
+    function renderCal(container,y,m){
+      const MN=['January','February','March','April','May','June','July','August','September','October','November','December'];
+      const first=new Date(y,m,1),last=new Date(y,m+1,0),sdow=(first.getDay()+6)%7;
+      let h='<div class="cal-month"><div class="cal-month-header">';
+      h+='<button class="cal-nav prev-month">&lsaquo;</button>';
+      h+='<span class="cal-month-name">'+MN[m]+' '+y+'</span>';
+      h+='<button class="cal-nav next-month">&rsaquo;</button>';
+      h+='</div><div class="cal-grid">';
+      ['Mo','Tu','We','Th','Fr','Sa','Su'].forEach(d=>h+='<div class="cal-dow">'+d+'</div>');
+      for(let i=0;i<sdow;i++)h+='<div class="cal-cell empty"></div>';
+      for(let d=1;d<=last.getDate();d++){
+        const dt=new Date(y,m,d),ds=fmt(dt);
+        const past=isPast(dt),unavail=isUnavail(dt);
+        const isSt=selStart&&fmt(selStart)===ds,isEn=selEnd&&fmt(selEnd)===ds;
+        const inR=inRng(dt);
+        let cls=['cal-cell'];
+        if(past)cls.push('past');
+        else if(unavail)cls.push('unavailable');
+        else cls.push('available');
+        if(isSt||isEn)cls.push('selected');
+        if(inR&&!past&&!unavail)cls.push('in-range');
+        h+='<div class="'+cls.join(' ')+'" data-date="'+ds+'">'+d+'</div>';
+      }
+      h+='</div></div>';
+      container.innerHTML=h;
+      container.querySelectorAll('.cal-cell.available').forEach(c=>{
+        c.addEventListener('click',()=>{
+          const dt=parse(c.dataset.date);
+          if(!selStart||(selStart&&selEnd)){selStart=dt;selEnd=null;}
+          else{if(dt<selStart){selEnd=selStart;selStart=dt;}else{selEnd=dt;}}
+          refresh();
+        });
+        c.addEventListener('mouseenter',()=>{hoverDt=parse(c.dataset.date);refresh();});
+        c.addEventListener('mouseleave',()=>{hoverDt=null;});
+      });
+      container.querySelector('.prev-month')?.addEventListener('click',()=>{curM--;if(curM<0){curM=11;curY--;}refresh();});
+      container.querySelector('.next-month')?.addEventListener('click',()=>{curM++;if(curM>11){curM=0;curY++;}refresh();});
+    }
+    function refresh(){const c=document.getElementById('calendarContainer');if(c)renderCal(c,curY,curM);}
+    document.addEventListener('DOMContentLoaded',()=>{
+      const n=new Date();curY=n.getFullYear();curM=n.getMonth();refresh();
+      const h=document.getElementById('hamburger'),nl=document.querySelector('.nav-links');
+      if(h&&nl)h.addEventListener('click',()=>nl.classList.toggle('open'));
+    });
+  </script>
+</body>
+        </html>
