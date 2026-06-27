@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sustainability — Hazel Edge</title>
+  <meta name="description" content="How Hazel Edge is being created with comfort, simplicity and a lighter footprint — from air source heating and spring water to coppice firewood and eco-conscious details.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* ── INTRO ── */
+    .sustain-intro { background: var(--warm-white); }
+    .intro-layout { display: grid; grid-template-columns: 1.5fr 1fr; gap: 6rem; align-items: start; }
+    .intro-text p { font-size: 0.95rem; color: var(--body-text); line-height: 1.9; margin-bottom: 1.2rem; }
+    .intro-quote {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.55rem; font-weight: 300; font-style: italic;
+      line-height: 1.55; color: var(--forest);
+      border-left: 2px solid var(--sage-light);
+      padding-left: 1.8rem; margin: 2.5rem 0;
+    }
+    .sustain-img {
+      height: 460px; border-radius: 2px;
+      background: linear-gradient(145deg,#2a3d24,#3a4e34,#4e6544,#7d9470,#b5c8ae);
+      position: sticky; top: 8rem;
+    }
+
+    /* ── SECTIONS WITH SUB-HEADINGS ── */
+    .sustain-sections { background: var(--cream); }
+    .sustain-items { display: flex; flex-direction: column; gap: 0; max-width: 780px; }
+    .sustain-item {
+      padding: 3.5rem 0;
+      border-bottom: 1px solid rgba(158,139,117,0.18);
+      display: grid; grid-template-columns: 60px 1fr; gap: 2rem; align-items: start;
+    }
+    .sustain-item:first-child { border-top: 1px solid rgba(158,139,117,0.18); }
+    .sustain-item-icon { font-size: 2rem; padding-top: 0.3rem; }
+    .sustain-item-body h3 { font-family:'Cormorant Garamond',serif; font-size:1.6rem; font-weight:400; color:var(--forest); margin-bottom:0.8rem; }
+    .sustain-item-body p { font-size:0.93rem; color:var(--body-text); line-height:1.9; margin-bottom:0.9rem; }
+    .sustain-item-body p:last-child { margin-bottom: 0; }
+
+    /* ── IMPACT STRIP ── */
+    .impact { background: var(--forest); padding: 5rem 3rem; }
+    .impact-inner { max-width: 1100px; margin: 0 auto; }
+    .impact-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 2rem; margin-top: 3rem; }
+    .impact-card { text-align: center; padding: 2rem 1rem; }
+    .impact-num { font-family:'Cormorant Garamond',serif; font-size:3rem; font-weight:300; color:var(--warm-white); line-height:1; margin-bottom:0.5rem; }
+    .impact-label { font-size:0.78rem; letter-spacing:0.12em; text-transform:uppercase; color:var(--sage-light); line-height:1.5; }
+
+    /* ── STILL GROWING ── */
+    .still-growing { background: var(--cream-deep); padding: 6rem 3rem; }
+    .sg-inner { max-width: 760px; margin: 0 auto; }
+    .sg-inner h2 { font-family:'Cormorant Garamond',serif; font-size:clamp(2rem,4vw,3rem); font-weight:300; color:var(--charcoal); margin-bottom:1.5rem; }
+    .sg-inner p { font-size:0.95rem; color:var(--body-text); line-height:1.9; margin-bottom:1.2rem; }
+    .sg-inner blockquote {
+      font-family:'Cormorant Garamond',serif; font-size:1.4rem; font-weight:300; font-style:italic;
+      color:var(--forest); line-height:1.55; margin:2.5rem 0;
+      border-left:2px solid var(--sage-light); padding-left:2rem;
+    }
+
+    @media(max-width:900px){
+      .intro-layout { grid-template-columns:1fr; gap:3rem; }
+      .sustain-img { position:static; height:300px; }
+      .impact-grid { grid-template-columns:repeat(2,1fr); }
+    }
+  </style>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Orinthalus/hazel-edge-website@main/images.css"><style>
+.page-hero.light-bg,
+.page-hero.dark-bg {
+  background-image: url('https://l.icdbcdn.com/oh/1f9e6f67-fab8-4e11-95dc-cf37fc3cc0b3.jpg?w=1600');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.slow-days {
+  background-image: url('https://l.icdbcdn.com/oh/44747096-9fb6-4bcc-8392-bb1f16f18318.jpg?w=1600');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+</style></head>
+<body>
+
+<nav class="opaque">
+  <a class='nav-logo dark' href='/'>Hazel Edge</a>
+  <ul class="nav-links">
+    <li><a class='dark' href='/stay'>Stay</a></li>
+    <li><a class='dark' href='/nature'>Nature</a></li>
+    <li><a class='dark active' href='/sustainability'>Sustainability</a></li>
+    <li><a class='dark' href='/explore'>Explore</a></li>
+    <li><a class='dark' href='/story'>Our Story</a></li>
+    <li><a class='dark' href='/faqs'>FAQs</a></li>
+    <li><a class='nav-book' href='/stay#booking'>Book</a></li>
+  </ul>
+</nav>
+
+<div class="page-hero light-bg">
+  <div class="page-hero-bg-word">Roots</div>
+  <div class="page-hero-inner">
+    <span class="page-eyebrow dark">A lighter footprint</span>
+    <h1>Sustainability at Hazel Edge</h1>
+    <p>Not perfection or grand claims. Just trying to live more thoughtfully with the land around us — and sharing that process with the guests who stay here.</p>
+  </div>
+</div>
+
+<!-- INTRO -->
+<section class="section sustain-intro">
+  <div class="section-inner">
+    <div class="intro-layout">
+      <div class="intro-text reveal">
+        <span class="section-label">Our approach</span>
+        <h2 class="section-title">Comfort and a lighter footprint</h2>
+        <blockquote class="intro-quote">"Not about perfection or grand claims. It is about trying to live more thoughtfully with the land around us."</blockquote>
+        <p>Hazel Edge is part of Liddel Lodge, our smallholding on the northern edge of Cumbria. Since arriving here, we have planted native woodland, begun restoring areas of meadow, and planted willow coppice with the long-term aim of growing enough firewood for both Hazel Edge and Liddel Lodge. It is a work in progress, but the aim is simple: to make the land more productive, more biodiverse and more resilient for the future.</p>
+        <p>We also enjoy sharing this way of life. Guests at Hazel Edge get to experience a little of it during their stay, and we share the wider journey through our YouTube channel, <em>The View From the Clouds</em>.</p>
+        <p>Hazel Edge is part of an ongoing attempt to live more carefully, grow more of what we need, restore what we can, and enjoy the beauty of this place without taking it for granted.</p>
+      </div>
+      <div class="sustain-img reveal reveal-delay-1"></div>
+    </div>
+  </div>
+</section>
+
+<!-- SUSTAIN ITEMS -->
+<section class="section sustain-sections">
+  <div class="section-inner">
+    <span class="section-label reveal">How we are doing it</span>
+    <h2 class="section-title reveal">The details</h2>
+    <div class="sustain-items" style="margin-top:3rem;">
+
+      <div class="sustain-item reveal">
+        <div class="sustain-item-icon">🔥</div>
+        <div class="sustain-item-body">
+          <h3>Heating & energy</h3>
+          <p>Hazel Edge is heated using an air source heat pump, keeping the cottage warm and comfortable throughout the year without relying on oil or gas.</p>
+          <p>We have solar panels at Liddel Lodge, helping us generate renewable electricity on site. In the future we hope to add solar panels to Hazel Edge too. Our electricity is supplied through Octopus Energy on a renewable tariff — so the energy we use is chosen with care.</p>
+        </div>
+      </div>
+
+      <div class="sustain-item reveal">
+        <div class="sustain-item-icon">💧</div>
+        <div class="sustain-item-body">
+          <h3>Spring water</h3>
+          <p>The water at Hazel Edge comes from a spring on the hill. It is one of the quiet luxuries of staying here — fresh, natural water from the landscape itself, not the mains.</p>
+          <p>Because it is a private spring supply, we ask guests to use water thoughtfully. Not anxiously, just with the awareness that it is something precious. Not leaving taps running unnecessarily, using water sensibly — small things that really do help.</p>
+        </div>
+      </div>
+
+      <div class="sustain-item reveal">
+        <div class="sustain-item-icon">🪵</div>
+        <div class="sustain-item-body">
+          <h3>Firewood & coppice</h3>
+          <p>We have planted willow coppice with the long-term aim of becoming increasingly self-sufficient in firewood for Hazel Edge and our own home.</p>
+          <p>Coppicing is a traditional way of managing trees. Instead of cutting a tree down once and replanting, the tree is cut and allowed to regrow from the same roots — simple, renewable and well suited to the wetter parts of our land. It also creates habitat, makes use of ground that would otherwise be waterlogged, and gives us a future supply of local firewood. You can follow this project on our <a href="https://youtube.com" target="_blank" class="link-underline">YouTube channel</a>.</p>
+        </div>
+      </div>
+
+      <div class="sustain-item reveal">
+        <div class="sustain-item-icon">🌿</div>
+        <div class="sustain-item-body">
+          <h3>Nature restoration</h3>
+          <p>Since arriving at Liddel Lodge, we have planted native woodland species — hazel, birch, rowan, alder and field maple across several areas. Meadow restoration is underway in others: less cutting, no fertiliser, more time.</p>
+          <p>This is patient work. Trees grow slowly, meadows take longer. But year by year the landscape becomes more sheltered, more varied and more alive — and guests at Hazel Edge are staying somewhere genuinely connected to that ongoing process.</p>
+        </div>
+      </div>
+
+      <div class="sustain-item reveal">
+        <div class="sustain-item-icon">🧴</div>
+        <div class="sustain-item-body">
+          <h3>Thoughtful details inside</h3>
+          <p>Inside Hazel Edge, we use eco-conscious products wherever practical: refillable toiletries, eco cleaning products, Fairtrade tea, coffee and hot chocolate, soft eco toilet paper, and a toilet paper gel alternative to disposable wipes.</p>
+          <p>Because Hazel Edge is on a septic tank, we ask guests to flush only toilet paper and put everything else in the bin provided. It is a simple but important part of caring for the land and water around us.</p>
+        </div>
+      </div>
+
+      <div class="sustain-item reveal">
+        <div class="sustain-item-icon">🥦</div>
+        <div class="sustain-item-body">
+          <h3>Herbs, vegetables & seasonal produce</h3>
+          <p>We grow a lot of our own vegetables at Liddel Lodge, and when the garden is generous, we love being able to share seasonal produce with guests.</p>
+          <p>Outside Hazel Edge, we keep herbs in pots — rosemary, thyme, mint and parsley — for guests to pick a little fresh flavour for their meals. It is a small touch, but one that adds to the feeling of being somewhere rooted, relaxed and real.</p>
+        </div>
+      </div>
+
+      <div class="sustain-item reveal">
+        <div class="sustain-item-icon">🪑</div>
+        <div class="sustain-item-body">
+          <h3>Second-hand & upcycled furnishings</h3>
+          <p>Where possible, we choose reused, upcycled or second-hand furnishings rather than buying everything new. Not everything has to be brand new to be beautiful — older pieces often bring more character, less waste and a better story.</p>
+          <p>This is not a rigid rule, but it is a preference we apply wherever it makes sense, and one that gives Hazel Edge a feel that is more personal and less generic.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- IMPACT -->
+<section class="impact">
+  <div class="impact-inner">
+    <span class="section-label light reveal">The bigger picture</span>
+    <h2 class="section-title light reveal">What we have done so far</h2>
+    <div class="impact-grid">
+      <div class="impact-card reveal">
+        <div class="impact-num">400+</div>
+        <div class="impact-label">Native trees planted across Liddel Lodge</div>
+      </div>
+      <div class="impact-card reveal reveal-delay-1">
+        <div class="impact-num">100%</div>
+        <div class="impact-label">Renewable electricity via Octopus Energy</div>
+      </div>
+      <div class="impact-card reveal reveal-delay-2">
+        <div class="impact-num">0</div>
+        <div class="impact-label">Oil or gas used to heat Hazel Edge</div>
+      </div>
+      <div class="impact-card reveal reveal-delay-3">
+        <div class="impact-num">∞</div>
+        <div class="impact-label">Spring water from the hill — endlessly local</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STILL GROWING -->
+<section class="still-growing">
+  <div class="sg-inner">
+    <span class="section-label reveal">Where we are heading</span>
+    <h2 class="reveal">Still growing</h2>
+    <p class="reveal">Hazel Edge is part of a long-term commitment, not a finished project. There is more to do — solar panels to add, more habitat to create, more of the land to restore.</p>
+    <p class="reveal">We hope guests feel that care during their stay — not because it is shouted about, but because it is woven quietly into the place itself.</p>
+    <blockquote class="reveal">"A home on the edge of things — rooted in the landscape, quietly personal, and made for slowing down."</blockquote>
+    <div class="reveal" style="margin-top:2rem;display:flex;gap:1.2rem;flex-wrap:wrap;">
+      <a class='btn btn-forest' href='/nature'>The land & wildlife</a>
+      <a class='btn btn-outline' href='/story'>Read our story</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div>
+      <div class="footer-brand">Hazel Edge</div>
+      <div class="footer-tagline">A home on the edge of things.</div>
+      <p class="footer-desc">A private rural retreat in northern Cumbria, part of The View From the Clouds smallholding at Liddel Lodge.</p>
+    </div>
+    <div class="footer-col"><h5>The Cottage</h5><ul>
+      <li><a href='/stay'>Stay at Hazel Edge</a></li>
+      <li><a href='/stay#inside'>Inside the cottage</a></li>
+      <li><a href='/stay#dogs'>Dog-friendly info</a></li>
+      <li><a href='/stay#booking'>Book your stay</a></li>
+    </ul></div>
+    <div class="footer-col"><h5>Discover</h5><ul>
+      <li><a href='/nature'>The land & wildlife</a></li>
+      <li><a href='/sustainability'>Sustainability</a></li>
+      <li><a href='/explore'>Explore the area</a></li>
+    </ul></div>
+    <div class="footer-col"><h5>About</h5><ul>
+      <li><a href='/story'>Our story</a></li>
+      <li><a href='/faqs'>FAQs</a></li>
+      <li><a href="https://youtube.com" target="_blank">The View From the Clouds ↗</a></li>
+    </ul></div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 Hazel Edge · Liddel Lodge, Cumbria · CA6</span>
+    <div class="footer-bottom-links"><a href="#">Privacy</a><a href="#">Terms</a><a href="#">Booking conditions</a></div>
+  </div>
+</footer>
+<script>
+  const observer = new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('visible');observer.unobserve(x.target);}}),{threshold:0.1,rootMargin:'0px 0px -30px 0px'});
+  document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+</script>
+</body>
+</html>
