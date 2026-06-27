@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FAQs — Hazel Edge</title>
+  <meta name="description" content="Everything you need to know before staying at Hazel Edge — dogs, water, WiFi, accessibility, outdoor bathing and more.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .faq-layout { display: grid; grid-template-columns: 1fr 2.2fr; gap: 6rem; align-items: start; }
+    .faq-sidebar { position: sticky; top: 7rem; }
+    .faq-sidebar h3 { font-family:'Cormorant Garamond',serif; font-size:1.3rem; font-weight:400; color:var(--charcoal); margin-bottom:1.2rem; }
+    .faq-cat-links { display: flex; flex-direction: column; gap: 0.5rem; }
+    .faq-cat-link {
+      padding: 0.65rem 1rem; border-radius: 2px; background: var(--cream);
+      text-decoration: none; font-size: 0.85rem; color: var(--body-text);
+      border-left: 2px solid transparent; transition: all 0.25s;
+    }
+    .faq-cat-link:hover, .faq-cat-link.active { border-left-color: var(--sage); color: var(--forest); background: var(--cream-deep); }
+    .faq-content { max-width: 720px; }
+    .faq-group { margin-bottom: 4rem; }
+    .faq-group-title {
+      font-family:'Cormorant Garamond',serif; font-size:1.6rem; font-weight:400;
+      color:var(--forest); margin-bottom:2rem;
+      padding-bottom:0.8rem; border-bottom: 1px solid var(--mist);
+      display: flex; align-items: center; gap: 0.7rem;
+    }
+    .faq-item { margin-bottom: 0; border-bottom: 1px solid var(--cream-deep); }
+    .faq-q {
+      width: 100%; background: none; border: none; cursor: pointer;
+      padding: 1.4rem 0; text-align: left;
+      font-family:'Jost',sans-serif; font-size:0.95rem; font-weight:400;
+      color:var(--charcoal); display:flex; justify-content:space-between; align-items:center; gap:1rem;
+    }
+    .faq-q:hover { color: var(--forest); }
+    .faq-chevron { flex-shrink:0; font-size:1rem; color:var(--stone); transition:transform 0.3s; }
+    .faq-item.open .faq-chevron { transform: rotate(180deg); }
+    .faq-a {
+      max-height: 0; overflow: hidden; transition: max-height 0.4s ease;
+    }
+    .faq-item.open .faq-a { max-height: 600px; }
+    .faq-a-inner { padding: 0.2rem 0 1.8rem; font-size:0.9rem; color:var(--body-text); line-height:1.85; }
+    .faq-a-inner p { margin-bottom: 0.7rem; }
+    .faq-a-inner p:last-child { margin-bottom:0; }
+    .faq-a-inner a { color:var(--forest); }
+
+    .contact-cta { background: var(--forest); padding: 6rem 3rem; text-align:center; }
+    .contact-cta h2 { font-family:'Cormorant Garamond',serif; font-size:clamp(2rem,4vw,3rem); font-weight:300; color:var(--warm-white); margin-bottom:1rem; }
+    .contact-cta p { font-size:0.95rem; color:rgba(250,247,242,0.7); max-width:440px; margin:0 auto 2.5rem; line-height:1.85; }
+
+    @media(max-width:900px){
+      .faq-layout { grid-template-columns:1fr; gap:3rem; }
+      .faq-sidebar { position:static; }
+    }
+  </style>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Orinthalus/hazel-edge-website@main/images.css"><style>
+.page-hero.light-bg,
+.page-hero.dark-bg {
+  background-image: url('https://l.icdbcdn.com/oh/1f9e6f67-fab8-4e11-95dc-cf37fc3cc0b3.jpg?w=1600');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.slow-days {
+  background-image: url('https://l.icdbcdn.com/oh/44747096-9fb6-4bcc-8392-bb1f16f18318.jpg?w=1600');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+</style></head>
+<body>
+
+<nav class="opaque">
+  <a class='nav-logo dark' href='/'>Hazel Edge</a>
+  <ul class="nav-links">
+    <li><a class='dark' href='/stay'>Stay</a></li>
+    <li><a class='dark' href='/nature'>Nature</a></li>
+    <li><a class='dark' href='/sustainability'>Sustainability</a></li>
+    <li><a class='dark' href='/explore'>Explore</a></li>
+    <li><a class='dark' href='/story'>Our Story</a></li>
+    <li><a class='dark active' href='/faqs'>FAQs</a></li>
+    <li><a class='nav-book' href='/stay#booking'>Book</a></li>
+  </ul>
+</nav>
+
+<div class="page-hero light-bg">
+  <div class="page-hero-bg-word">FAQs</div>
+  <div class="page-hero-inner">
+    <span class="page-eyebrow dark">Before you arrive</span>
+    <h1>Frequently asked questions</h1>
+    <p>Everything you need to know before your stay. If you cannot find the answer here, just get in touch — we are happy to help.</p>
+  </div>
+</div>
+
+<section class="section" style="background:var(--warm-white);">
+  <div class="section-inner">
+    <div class="faq-layout">
+      <div class="faq-sidebar reveal">
+        <h3>Topics</h3>
+        <div class="faq-cat-links">
+          <a href="#dogs" class="faq-cat-link">🐾 Dogs</a>
+          <a href="#property" class="faq-cat-link">🏡 The property</a>
+          <a href="#water" class="faq-cat-link">💧 Water & utilities</a>
+          <a href="#practical" class="faq-cat-link">📋 Practical info</a>
+          <a href="#access" class="faq-cat-link">♿ Accessibility</a>
+          <a href="#booking" class="faq-cat-link">📅 Booking</a>
+        </div>
+        <div style="margin-top:2.5rem;padding:1.5rem;background:var(--cream);border-radius:2px;">
+          <p style="font-size:0.82rem;color:var(--body-text);line-height:1.75;margin-bottom:1rem;">Still have a question? We will always reply personally.</p>
+          <a href="mailto:hello@hazeledge.co.uk" class="btn btn-forest" style="font-size:0.75rem;padding:0.7rem 1.4rem;">Email us</a>
+        </div>
+      </div>
+
+      <div class="faq-content reveal reveal-delay-1">
+
+        <div class="faq-group" id="dogs">
+          <div class="faq-group-title">🐾 Dogs</div>
+
+          <div class="faq-item">
+            <button class="faq-q">Can I bring my dog? <span class="faq-chevron">▾</span></button>
+            <div class="faq-a"><div class="faq-a-inner"><p>Yes — dogs are genuinely welcome at Hazel Edge. We accept up to two dogs per stay, and there is no additional charge. Dog towels and a mat are provided for muddy arrivals, and the garden is fully enclosed.</p></div></div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-q">Is the garden enclosed and safe for dogs? <span class="faq-chevron">▾</span></button>
+            <div class="faq-a"><div class="faq-a-inner"><p>Yes. The garden is fully enclosed and safe for dogs to enjoy off-lead. Beyond the garden boundary, the wider land is a working smallholding — please keep dogs on leads if you venture beyond the garden.</p></div></div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-q">Are there good walks nearby for dogs? <span class="faq-chevron">▾</span></button>
+            <div class="faq-a"><div class="faq-a-inner"><p>Yes, plenty. There are footpaths close to the property, and within a short drive you have Talkin Tarn Country Park (dog-friendly with a café), sections of Hadrian's Wall Path, and the wider Solway and North Pennines areas. We include a local walking guide in your welcome information.</p></div></div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-q">Are dogs allowed on the furniture and beds? <span class="faq-chevron">▾</span></button>
+            <div class="faq-a"><div class="faq-a-inner"><p>We ask that dogs are kept off the furniture and beds, please. This helps us keep the cottage fresh for all guests, including those who stay after you. Dog beds are welcome — please bring your own.</p></div></div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-q">Is there an extra charge for dogs? <span class="faq-chevron">▾</span></button>
+            <div class="faq-a"><div class="faq-a-inner"><p>No. Dogs are welcome at no additional cost. We do ask that you clean up after them in the garden and on any parts of the wider land you access.</p></div></div>
+          </div>
+        </div>
+
+        <div class="faq-group" id="property">
+          <div class="faq-group-title">🏡 The property</div>
+
+          <div class="faq-item">
+            <button class="faq-q">Is there an outdoor bath or hot tub? <span class="faq-chevron">▾</span></button>
+            <div class="faq-a"><div class="faq-a-inner"><p>Hazel Edge has an outdoor bathing area for guests to enjoy. Please check the listing or get in touch for current details on what is available during your dates.</p></div></div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-q">How many people can stay? <span class="faq-chevron">▾</span></button>
+            <div class="faq-a"><div class="faq-a-inner"><p>Hazel Edge sleeps up to 6 guests across three bedrooms. The bedrooms can be configured as doubles or twins depending on your group's needs.</p></div></div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-q">Is it suitable for children? <span class="faq-chevron">▾</span></button>
+            <div class="faq-a"><div class="faq-a-inner"><p>Yes. Hazel Edge is a good family home, and children are very welcome. The enclosed garden is safe for younger children to play in. Some parts of the outdoor terrain are uneven, so younger children will need supervision in the wider areas.</p></div></div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-q">Where do I park? <span class="faq-chevron">▾</span></button>
+            <div class="faq-a"><div class="faq-a-inner"><p>There is private off-road parking at Hazel Edge for up to two vehicles, as well as EV charging. Full arrival instructions are sent in advance of your stay.</p></div></div>
+          </div>
+        </div>
+
+        <div class="faq-group" id="water">
+          <div class="faq-group-title">💧 Water & utilities</div>
+
+          <div class="faq-item">
+            <button class="faq-q">Is the water mains or spring water? <span class="faq-chevron">▾</span></button>
+            <div class="faq-a"><div class="faq-a-inner"><p>The water at Hazel Edge comes from a private spring on the hill — fresh, clean and tested. It is one of the quiet pleasures of staying here. Because it is not a mains supply, we ask guests to use water thoughtfully and avoid leaving taps running unnecessarily.</p></div></div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-q">What should not go down the toilet? <span class="faq-chevron">▾</span></button>
+            <div class="faq-a"><div class="faq-a-inner"><p>Hazel Edge is on a private septic tank. Please flush only toilet paper — nothing else, including wipes (even those labelled "flushable"). Bags and a bin are provided in the bathroom. This is an important one — thank you.</p></div></div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-q">How is the heating powered? <span class="faq-chevron">▾</span></button>
+            <div class="faq-a"><div class="faq-a-inner"><p>Hazel Edge is heated by an air source heat pump — efficient, quiet and reliable. It warms the cottage quickly and maintains a comfortable temperature throughout the year. Electricity is supplied via Octopus on a renewable tariff.</p></div></div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-q">Is there an EV charger? <span class="faq-chevron">▾</span></button>
+            <div class="faq-a"><div class="faq-a-inner"><p>Yes. There is EV charging available on site. Please get in touch before your stay if you have specific requirements about charging speed or connector type.</p></div></div>
+          </div>
+        </div>
+
+        <div class="faq-group" id="practical">
+          <div class="faq-group-title">📋 Practical info</div>
+
+          <div class="faq-item">
+            <button class="faq-q">Is there WiFi? <span class="faq-chevron">▾</span></button>
+            <div class="faq-a"><div class="faq-a-inner"><p>Yes — fibre broadband is available throughout the cottage and works well. WiFi details are provided on arrival. Mobile signal varies by network in this area, but WiFi calling works reliably on most phones.</p></div></div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-q">How far are the nearest shops? <span class="faq-chevron">▾</span></button>
+            <div class="faq-a"><div class="faq-a-inner"><p>Carlisle is approximately 15 minutes by car and has a full range of shops, supermarkets, independent cafés and restaurants. Brampton, a smaller market town, is also about 15 minutes away and has a good butcher and local shops. Rural, but genuinely not remote.</p></div></div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-q">What are the check-in and check-out times? <span class="faq-chevron">▾</span></button>
+            <div class="faq-a"><div class="faq-a-inner"><p>Check-in is from 4 pm and check-out is by 10 am. If you need a different arrangement, please get in touch and we will do our best to help — it depends on the bookings either side of your stay.</p></div></div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-q">Will we see Austin and Emma during our stay? <span class="faq-chevron">▾</span></button>
+            <div class="faq-a"><div class="faq-a-inner"><p>We live nearby at Liddel Lodge, so we are close if you need anything — but Hazel Edge is your space to enjoy in peace. We will not be dropping in uninvited. You will have our contact details and we are always available if something comes up.</p></div></div>
+          </div>
+        </div>
+
+        <div class="faq-group" id="access">
+          <div class="faq-group-title">♿ Accessibility</div>
+
+          <div class="faq-item">
+            <button class="faq-q">Is the property accessible? <span class="faq-chevron">▾</span></button>
+            <div class="faq-a"><div class="faq-a-inner"><p>As a single-storey bungalow, Hazel Edge has no stairs — all rooms are on one level. The wet room has step-free access with a level threshold. Some outdoor areas have uneven ground. If you have specific accessibility requirements, please contact us directly and we will be as helpful and honest as we can about what will and will not work for you.</p></div></div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-q">Is there a full accessibility guide? <span class="faq-chevron">▾</span></button>
+            <div class="faq-a"><div class="faq-a-inner"><p>Yes — a detailed access guide is available on request, covering door widths, floor surfaces, bathroom dimensions, parking distance and outdoor terrain. Please get in touch and we will send it to you.</p></div></div>
+          </div>
+        </div>
+
+        <div class="faq-group" id="booking">
+          <div class="faq-group-title">📅 Booking</div>
+
+          <div class="faq-item">
+            <button class="faq-q">What is the minimum stay? <span class="faq-chevron">▾</span></button>
+            <div class="faq-a"><div class="faq-a-inner"><p>The minimum stay is two nights for most of the year, and three nights during peak periods (school holidays and bank holidays). Longer stays are very welcome — the cottage feels even better after a few days.</p></div></div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-q">Can I book direct, or only via Airbnb/Booking.com? <span class="faq-chevron">▾</span></button>
+            <div class="faq-a"><div class="faq-a-inner"><p>You can book direct via this website for the best rate — no platform commission, and you deal with us personally. Hazel Edge is also available on Airbnb and Booking.com. All calendars are kept in sync, so availability is always accurate wherever you book.</p></div></div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-q">What is the cancellation policy? <span class="faq-chevron">▾</span></button>
+            <div class="faq-a"><div class="faq-a-inner"><p>Our direct booking cancellation terms are included in your booking confirmation. If you are booking via Airbnb or Booking.com, their standard cancellation policies apply. We try to be reasonable where we can — if circumstances change, please talk to us.</p></div></div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-q">Can I pay in instalments? <span class="faq-chevron">▾</span></button>
+            <div class="faq-a"><div class="faq-a-inner"><p>For direct bookings, a deposit secures your dates with the balance due before arrival. Please contact us if you would like to discuss the payment schedule — we are happy to be flexible where we can.</p></div></div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT CTA -->
+<section class="contact-cta">
+  <h2>Still have a question?</h2>
+  <p>We reply to all enquiries personally and will always be straight with you about whether Hazel Edge is the right fit for your stay.</p>
+  <div style="display:flex;gap:1.2rem;justify-content:center;flex-wrap:wrap;">
+    <a href="mailto:hello@hazeledge.co.uk" class="btn btn-forest">Email us</a>
+    <a class='btn btn-ghost-light' href='/stay#booking'>Book your stay</a>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div>
+      <div class="footer-brand">Hazel Edge</div>
+      <div class="footer-tagline">A home on the edge of things.</div>
+      <p class="footer-desc">A private rural retreat in northern Cumbria, part of The View From the Clouds smallholding at Liddel Lodge.</p>
+    </div>
+    <div class="footer-col"><h5>The Cottage</h5><ul>
+      <li><a href='/stay'>Stay at Hazel Edge</a></li>
+      <li><a href='/stay#inside'>Inside the cottage</a></li>
+      <li><a href='/stay#dogs'>Dog-friendly info</a></li>
+      <li><a href='/stay#booking'>Book your stay</a></li>
+    </ul></div>
+    <div class="footer-col"><h5>Discover</h5><ul>
+      <li><a href='/nature'>The land & wildlife</a></li>
+      <li><a href='/sustainability'>Sustainability</a></li>
+      <li><a href='/explore'>Explore the area</a></li>
+    </ul></div>
+    <div class="footer-col"><h5>About</h5><ul>
+      <li><a href='/story'>Our story</a></li>
+      <li><a href='/faqs'>FAQs</a></li>
+      <li><a href="https://youtube.com" target="_blank">The View From the Clouds ↗</a></li>
+    </ul></div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 Hazel Edge · Liddel Lodge, Cumbria · CA6</span>
+    <div class="footer-bottom-links"><a href="#">Privacy</a><a href="#">Terms</a><a href="#">Booking conditions</a></div>
+  </div>
+</footer>
+<script>
+  // FAQ accordion
+  document.querySelectorAll('.faq-q').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const item = btn.parentElement;
+      const isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
+      if (!isOpen) item.classList.add('open');
+    });
+  });
+  const observer = new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('visible');observer.unobserve(x.target);}}),{threshold:0.1,rootMargin:'0px 0px -30px 0px'});
+  document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+</script>
+</body>
+</html>
