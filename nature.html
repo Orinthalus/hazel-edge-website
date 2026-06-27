@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Land & Wildlife — Hazel Edge</title>
+  <meta name="description" content="The land around Hazel Edge is slowly being restored and enriched. Wildlife, woodland, big skies and border country views.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .nature-intro { background: var(--warm-white); }
+    .nature-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
+    .nature-img-main {
+      height: 520px; border-radius: 2px;
+      background: linear-gradient(145deg,#2a3d24,#3a4e34,#4e6544,#7d9470,#b5c8d8,#dce8f0);
+      position: relative; overflow: hidden;
+    }
+    .nature-img-main::after {
+      content: '';
+      position: absolute; inset: 0;
+      background: linear-gradient(to bottom, transparent 60%, rgba(42,78,52,0.3) 100%);
+    }
+    .nature-text p { font-size: 0.95rem; color: var(--body-text); line-height: 1.9; margin-bottom: 1.2rem; }
+
+    /* ── LANDSCAPE FEATURE ── */
+    .landscape { background: var(--forest); padding: 6rem 3rem; }
+    .landscape-inner { max-width: 1100px; margin: 0 auto; }
+    .landscape-quote {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.8rem, 4vw, 3rem); font-weight: 300;
+      color: var(--warm-white); line-height: 1.3;
+      max-width: 820px; margin-bottom: 3rem;
+      border-left: 2px solid var(--sage);
+      padding-left: 2.5rem;
+    }
+    .landscape-cards { display: grid; grid-template-columns: repeat(3,1fr); gap: 2rem; margin-top: 3rem; }
+    .lcard {
+      padding: 2.2rem 2rem;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 2px;
+    }
+    .lcard-icon { font-size: 1.8rem; margin-bottom: 1rem; }
+    .lcard h4 { font-family:'Cormorant Garamond',serif; font-size:1.2rem; font-weight:400; color:var(--warm-white); margin-bottom:0.6rem; }
+    .lcard p { font-size:0.85rem; color:rgba(250,247,242,0.62); line-height:1.75; }
+
+    /* ── WILDLIFE ── */
+    .wildlife { background: var(--cream); }
+    .wildlife-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 1.5rem; margin-top: 3rem; }
+    .wcard {
+      padding: 2rem 1.8rem;
+      background: var(--warm-white); border: 1px solid var(--cream-deep);
+      border-radius: 2px; text-align: center;
+      transition: border-color 0.3s, transform 0.3s;
+    }
+    .wcard:hover { border-color: var(--sage-light); transform: translateY(-4px); }
+    .wcard-icon { font-size: 2.2rem; margin-bottom: 0.8rem; }
+    .wcard h4 { font-family:'Cormorant Garamond',serif; font-size:1.1rem; font-weight:400; color:var(--charcoal); margin-bottom:0.4rem; }
+    .wcard p { font-size:0.82rem; color:var(--body-text); line-height:1.65; }
+
+    /* ── WOODLAND ── */
+    .woodland { background: var(--cream-deep); }
+    .woodland-layout { display: grid; grid-template-columns: 1.4fr 1fr; gap: 5rem; align-items: center; margin-top: 2rem; }
+    .woodland-text p { font-size:0.95rem; color:var(--body-text); line-height:1.9; margin-bottom:1.2rem; }
+    .woodland-img {
+      height: 460px; border-radius: 2px;
+      background: linear-gradient(145deg,#2a3d24,#3a4e34,#4e6544,#7d9470,#b5c8ae);
+    }
+
+    /* ── HAZEL ── */
+    .hazel-corner { background: var(--warm-white); padding: 5rem 3rem; }
+    .hazel-inner {
+      max-width: 1100px; margin: 0 auto;
+      display: grid; grid-template-columns: 1fr 2fr; gap: 5rem; align-items: center;
+    }
+    .hazel-img {
+      height: 340px; border-radius: 2px;
+      background: linear-gradient(145deg,#9e8b75,#c9b99f,#e8d5be,#b5c8ae);
+      position: relative;
+    }
+    .hazel-img::after { content: 'Hazel'; position:absolute; bottom:1rem; right:1.2rem; font-family:'Cormorant Garamond',serif; font-style:italic; font-size:0.95rem; color:rgba(250,247,242,0.55); }
+    .hazel-text p { font-size:0.95rem; color:var(--body-text); line-height:1.9; margin-bottom:1.2rem; }
+
+    /* ── SKIES ── */
+    .skies { background: var(--charcoal); padding: 6rem 3rem; text-align: center; }
+    .skies-inner { max-width: 720px; margin: 0 auto; }
+    .skies h2 { font-family:'Cormorant Garamond',serif; font-size:clamp(2rem,5vw,3.5rem); font-weight:300; color:var(--warm-white); margin-bottom:1.5rem; }
+    .skies p { font-size:0.95rem; color:rgba(250,247,242,0.65); line-height:1.9; margin-bottom:1.2rem; }
+    .stars { font-size:2.5rem; letter-spacing:0.5rem; margin-bottom:2rem; opacity:0.6; }
+
+    @media(max-width:900px){
+      .nature-layout,.woodland-layout,.hazel-inner { grid-template-columns:1fr; gap:3rem; }
+      .landscape-cards,.wildlife-grid { grid-template-columns:1fr 1fr; }
+    }
+    @media(max-width:600px){
+      .wildlife-grid { grid-template-columns:1fr 1fr; }
+      .landscape-cards { grid-template-columns:1fr; }
+    }
+  </style>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Orinthalus/hazel-edge-website@main/images.css"><style>
+.page-hero.light-bg,
+.page-hero.dark-bg {
+  background-image: url('https://l.icdbcdn.com/oh/1f9e6f67-fab8-4e11-95dc-cf37fc3cc0b3.jpg?w=1600');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.slow-days {
+  background-image: url('https://l.icdbcdn.com/oh/44747096-9fb6-4bcc-8392-bb1f16f18318.jpg?w=1600');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+</style></head>
+<body>
+
+<nav class="opaque">
+  <a class='nav-logo dark' href='/'>Hazel Edge</a>
+  <ul class="nav-links">
+    <li><a class='dark' href='/stay'>Stay</a></li>
+    <li><a class='dark active' href='/nature'>Nature</a></li>
+    <li><a class='dark' href='/sustainability'>Sustainability</a></li>
+    <li><a class='dark' href='/explore'>Explore</a></li>
+    <li><a class='dark' href='/story'>Our Story</a></li>
+    <li><a class='dark' href='/faqs'>FAQs</a></li>
+    <li><a class='nav-book' href='/stay#booking'>Book</a></li>
+  </ul>
+</nav>
+
+<div class="page-hero dark-bg">
+  <div class="page-hero-bg-word">Nature</div>
+  <div class="page-hero-inner">
+    <span class="page-eyebrow light">The land & wildlife</span>
+    <h1>A home on the edge of things</h1>
+    <p>Cumbria, border country, open skies and weather — and a landscape that shifts with every hour of light. The land around Hazel Edge is part of what you are coming for.</p>
+  </div>
+</div>
+
+<!-- INTRO -->
+<section class="section nature-intro">
+  <div class="section-inner">
+    <div class="nature-layout">
+      <div class="nature-img-main reveal"></div>
+      <div class="nature-text reveal reveal-delay-1">
+        <span class="section-label">The setting</span>
+        <h2 class="section-title">Border country, open skies</h2>
+        <p>Hazel Edge sits on the northern edge of Cumbria, close to the Scottish border. The landscape here is open and uncluttered — wide fields, distant hills, and the kind of sky that makes you look up.</p>
+        <p>This is not a manicured countryside. It is real rural Cumbria: the weather comes in, the light changes constantly and the land has a character of its own. For guests who love the outdoors, it is the kind of place that is hard to leave.</p>
+        <p>The land immediately around Hazel Edge is being actively managed and restored — native trees planted, meadow areas returning, more habitat created. This is slow, patient work, but the results are already visible in the variety of birds, insects and plants that have found their way here.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LANDSCAPE -->
+<section class="landscape">
+  <div class="landscape-inner">
+    <blockquote class="landscape-quote reveal">"Wide views across the border country — the kind of landscape that makes you stop and look."</blockquote>
+    <div class="landscape-cards">
+      <div class="lcard reveal">
+        <div class="lcard-icon">🌄</div>
+        <h4>The view</h4>
+        <p>A wide open valley visible from the cottage and garden — border hills in the distance, the sky taking up more space than the land. The kind of view that changes your mood.</p>
+      </div>
+      <div class="lcard reveal reveal-delay-1">
+        <div class="lcard-icon">☁️</div>
+        <h4>The sky</h4>
+        <p>Cloud formations, weather coming in across the hills, light that shifts from grey to gold in minutes. From Hazel Edge, watching the sky is genuinely something to do.</p>
+      </div>
+      <div class="lcard reveal reveal-delay-2">
+        <div class="lcard-icon">🌫️</div>
+        <h4>The seasons</h4>
+        <p>Each season brings something different — summer evenings that linger, autumn mist in the valley, winter skies that go on forever, spring arriving slowly and with conviction.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WILDLIFE -->
+<section class="section wildlife">
+  <div class="section-inner">
+    <span class="section-label reveal">What you might encounter</span>
+    <h2 class="section-title reveal">Wildlife at Hazel Edge</h2>
+    <p class="section-intro reveal">We only mention what is genuinely likely. The list below reflects what we regularly see on and around the smallholding.</p>
+    <div class="wildlife-grid">
+      <div class="wcard reveal"><div class="wcard-icon">🦅</div><h4>Birds of prey</h4><p>Buzzards, kestrels and occasionally red kites circle the valley. Watch the thermals above the ridge on still days.</p></div>
+      <div class="wcard reveal reveal-delay-1"><div class="wcard-icon">🦌</div><h4>Deer & hares</h4><p>Roe deer are regular visitors at dawn and dusk. Brown hares can be spotted in the open fields in quieter months.</p></div>
+      <div class="wcard reveal reveal-delay-2"><div class="wcard-icon">🦇</div><h4>Bats</h4><p>Summer evenings bring pipistrelles and brown long-eared bats — best seen at dusk from the garden.</p></div>
+      <div class="wcard reveal reveal-delay-3"><div class="wcard-icon">🐦</div><h4>Garden birds</h4><p>Goldfinches, chaffinches, long-tailed tits and treecreepers are regular visitors to the smallholding.</p></div>
+      <div class="wcard reveal"><div class="wcard-icon">🦋</div><h4>Butterflies</h4><p>Meadow browns, gatekeepers and orange tips in summer. The restoring meadow areas have increased numbers noticeably.</p></div>
+      <div class="wcard reveal reveal-delay-1"><div class="wcard-icon">🌸</div><h4>Wildflowers</h4><p>Ox-eye daisies, knapweed, ragged robin and bird's-foot trefoil in the meadow restoration areas in summer.</p></div>
+      <div class="wcard reveal reveal-delay-2"><div class="wcard-icon">🦔</div><h4>Small mammals</h4><p>Hedgehogs, field voles and wood mice are around — Hazel the dog shows a keen interest in locating them.</p></div>
+      <div class="wcard reveal reveal-delay-3"><div class="wcard-icon">🌿</div><h4>Insects</h4><p>Bumblebees, hoverflies, beetles and dragonflies near the wetter areas. The coppice planting has brought more variety.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- WOODLAND -->
+<section class="section woodland">
+  <div class="section-inner">
+    <div class="woodland-layout">
+      <div class="woodland-text reveal">
+        <span class="section-label">Restoration in progress</span>
+        <h2 class="section-title">Woodland & meadow</h2>
+        <p>Since arriving at Liddel Lodge, we have been planting and restoring. Native woodland species — hazel, birch, rowan, alder and field maple — have gone in across several areas of the holding. It is slow work, but the trees are establishing well.</p>
+        <p>Meadow restoration takes even longer, but sections of rough grass are being managed to encourage wildflowers back. Less cutting, no fertiliser, more patience.</p>
+        <p>We have also planted willow coppice on wetter ground — a traditional, renewable way of producing firewood. The aim is to become self-sufficient in logs for both Hazel Edge and our own home over the long term. You can read more about this on our <a class='link-underline' href='/sustainability'>sustainability page</a>.</p>
+        <p>For guests, this means staying somewhere that is genuinely connected to the land — not just surrounded by countryside, but part of a living, changing landscape.</p>
+        <div style="margin-top:2rem;"><a class='btn btn-forest' href='/sustainability'>Our sustainability story</a></div>
+      </div>
+      <div class="woodland-img reveal reveal-delay-1"></div>
+    </div>
+  </div>
+</section>
+
+<!-- HAZEL CORNER -->
+<section class="hazel-corner">
+  <div class="hazel-inner section-inner">
+    <div class="hazel-img reveal"></div>
+    <div class="hazel-text reveal reveal-delay-1">
+      <span class="section-label">Hazel's corner</span>
+      <h2 class="section-title">The dog behind the name</h2>
+      <p>Hazel — our border collie — came into our lives a few years after we arrived at Liddel Lodge. She has since become thoroughly embedded in the project, the YouTube channel and, inevitably, in the name of the cottage.</p>
+      <p>She takes her nature-watching seriously (particularly anything small and rustling), and has strong opinions about walks, mealtimes and who is sitting in her spot on the sofa.</p>
+      <p>She lives with us at Liddel Lodge, so guests at Hazel Edge will not encounter her in person — but you are welcome to follow her exploits on <a href="https://youtube.com" target="_blank" class="link-underline">The View From the Clouds</a>.</p>
+    </div>
+  </div>
+</section>
+
+<!-- DARK SKIES -->
+<section class="skies">
+  <div class="skies-inner">
+    <div class="stars reveal">✦ ✦ ✦</div>
+    <h2 class="reveal">Dark skies above Hazel Edge</h2>
+    <p class="reveal">Away from street lights and town glow, the night sky here is something genuinely worth staying up for. On clear nights you can see the Milky Way from the garden.</p>
+    <p class="reveal">The best nights are still, cold and dry — check the forecast before bed. A blanket and a hot drink help.</p>
+    <div style="margin-top:2.5rem;" class="reveal">
+      <a class='btn btn-forest' href='/stay#booking'>Book your stay</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div>
+      <div class="footer-brand">Hazel Edge</div>
+      <div class="footer-tagline">A home on the edge of things.</div>
+      <p class="footer-desc">A private rural retreat in northern Cumbria, part of The View From the Clouds smallholding at Liddel Lodge.</p>
+    </div>
+    <div class="footer-col"><h5>The Cottage</h5><ul>
+      <li><a href='/stay'>Stay at Hazel Edge</a></li>
+      <li><a href='/stay#inside'>Inside the cottage</a></li>
+      <li><a href='/stay#dogs'>Dog-friendly info</a></li>
+      <li><a href='/stay#booking'>Book your stay</a></li>
+    </ul></div>
+    <div class="footer-col"><h5>Discover</h5><ul>
+      <li><a href='/nature'>The land & wildlife</a></li>
+      <li><a href='/sustainability'>Sustainability</a></li>
+      <li><a href='/explore'>Explore the area</a></li>
+    </ul></div>
+    <div class="footer-col"><h5>About</h5><ul>
+      <li><a href='/story'>Our story</a></li>
+      <li><a href='/faqs'>FAQs</a></li>
+      <li><a href="https://youtube.com" target="_blank">The View From the Clouds ↗</a></li>
+    </ul></div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 Hazel Edge · Liddel Lodge, Cumbria · CA6</span>
+    <div class="footer-bottom-links"><a href="#">Privacy</a><a href="#">Terms</a><a href="#">Booking conditions</a></div>
+  </div>
+</footer>
+<script>
+  const observer = new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('visible');observer.unobserve(x.target);}}),{threshold:0.1,rootMargin:'0px 0px -30px 0px'});
+  document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+</script>
+</body>
+</html>
