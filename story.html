@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Our Story — Hazel Edge</title>
+  <meta name="description" content="How Hazel Edge came to be — the dream, Liddel Lodge, The View From the Clouds, and why we wanted to share a little of this place with guests.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .story-body { background: var(--warm-white); }
+    .story-layout { display: grid; grid-template-columns: 1fr 1.8fr; gap: 7rem; align-items: start; }
+    .story-sidebar { position: sticky; top: 8rem; }
+    .story-img {
+      height: 380px; border-radius: 2px;
+      background: linear-gradient(145deg,#2a3d24,#4e6544,#9e8b75,#c9b99f);
+      margin-bottom: 2rem; position: relative;
+    }
+    .story-img::after { content:'Austin, Emma & Hazel'; position:absolute; bottom:1rem; left:1.2rem; font-family:'Cormorant Garamond',serif; font-style:italic; font-size:0.9rem; color:rgba(250,247,242,0.6); }
+    .sidebar-links { display: flex; flex-direction: column; gap: 0.8rem; }
+    .sidebar-link {
+      padding: 0.8rem 1.2rem;
+      background: var(--cream); border-radius: 2px;
+      text-decoration: none; font-size: 0.85rem; color: var(--body-text);
+      border-left: 2px solid transparent;
+      transition: border-color 0.3s, color 0.3s;
+    }
+    .sidebar-link:hover { border-left-color: var(--sage); color: var(--forest); }
+
+    .story-content { max-width: 680px; }
+    .story-content h2 { font-family:'Cormorant Garamond',serif; font-size:2rem; font-weight:300; color:var(--charcoal); margin-bottom:1.2rem; margin-top:3.5rem; padding-top:3.5rem; border-top:1px solid var(--cream-deep); }
+    .story-content h2:first-child { margin-top:0; padding-top:0; border-top:none; }
+    .story-content p { font-size:0.95rem; color:var(--body-text); line-height:1.95; margin-bottom:1.2rem; }
+    .story-content blockquote {
+      font-family:'Cormorant Garamond',serif; font-size:1.5rem; font-weight:300; font-style:italic;
+      color:var(--forest); line-height:1.55; margin:2.5rem 0;
+      border-left:2px solid var(--sage-light); padding-left:2rem;
+    }
+    .story-sign {
+      margin-top:3rem; padding-top:2rem; border-top:1px solid var(--cream-deep);
+      font-family:'Cormorant Garamond',serif; font-size:1.2rem; font-style:italic; color:var(--stone);
+    }
+
+    .channel-section { background: var(--forest); padding: 6rem 3rem; }
+    .channel-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
+    .channel-img {
+      height: 360px; border-radius: 2px;
+      background: linear-gradient(145deg,#2a3d24,#4e6544,#7d9470,#b5c8ae);
+    }
+    .channel-text .section-title { color: var(--warm-white); }
+    .channel-text p { font-size:0.95rem; color:rgba(250,247,242,0.75); line-height:1.9; margin-bottom:1.2rem; }
+
+    @media(max-width:900px){
+      .story-layout { grid-template-columns:1fr; gap:3rem; }
+      .story-sidebar { position:static; }
+      .channel-inner { grid-template-columns:1fr; gap:3rem; }
+    }
+  </style>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Orinthalus/hazel-edge-website@main/images.css"><style>
+.page-hero.light-bg,
+.page-hero.dark-bg {
+  background-image: url('https://l.icdbcdn.com/oh/1f9e6f67-fab8-4e11-95dc-cf37fc3cc0b3.jpg?w=1600');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.slow-days {
+  background-image: url('https://l.icdbcdn.com/oh/44747096-9fb6-4bcc-8392-bb1f16f18318.jpg?w=1600');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+</style></head>
+<body>
+
+<nav class="opaque">
+  <a class='nav-logo dark' href='/'>Hazel Edge</a>
+  <ul class="nav-links">
+    <li><a class='dark' href='/stay'>Stay</a></li>
+    <li><a class='dark' href='/nature'>Nature</a></li>
+    <li><a class='dark' href='/sustainability'>Sustainability</a></li>
+    <li><a class='dark' href='/explore'>Explore</a></li>
+    <li><a class='dark active' href='/story'>Our Story</a></li>
+    <li><a class='dark' href='/faqs'>FAQs</a></li>
+    <li><a class='nav-book' href='/stay#booking'>Book</a></li>
+  </ul>
+</nav>
+
+<div class="page-hero light-bg">
+  <div class="page-hero-bg-word">Story</div>
+  <div class="page-hero-inner">
+    <span class="page-eyebrow dark">Austin, Emma & Hazel</span>
+    <h1>Our Story</h1>
+    <p>Long before Hazel Edge became part of our lives, there was a dream — and the story of how we got here is one worth telling.</p>
+  </div>
+</div>
+
+<!-- STORY -->
+<section class="section story-body">
+  <div class="section-inner">
+    <div class="story-layout">
+      <div class="story-sidebar reveal">
+        <div class="story-img"></div>
+        <div class="sidebar-links">
+          <a href="#dream" class="sidebar-link">The dream</a>
+          <a href="#liddel" class="sidebar-link">Liddel Lodge</a>
+          <a href="#channel" class="sidebar-link">The View From the Clouds</a>
+          <a href="#hazeledge" class="sidebar-link">Hazel Edge</a>
+          <a href="#name" class="sidebar-link">The name</a>
+        </div>
+      </div>
+      <div class="story-content reveal reveal-delay-1">
+
+        <h2 id="dream">The dream</h2>
+        <p>When we first met at university, we used to talk about living closer to the land. We read John Seymour's book on self-sufficiency and imagined that one day, somehow, we might have a smallholding of our own.</p>
+        <p>For many years, that dream sat quietly in the background. Life moved on: work, family, responsibilities and the ordinary business of getting by. But the idea never quite disappeared. It had a way of surfacing again — in conversations, in the books we read, in the kind of places we were drawn to on holiday.</p>
+
+        <h2 id="liddel">Liddel Lodge</h2>
+        <p>Eventually, after years of hoping, planning and wondering whether it would ever really happen, we found Liddel Lodge: a smallholding on the northern edge of Cumbria, close to the Scottish border, with fields, trees, old stone, wide skies and a view that still stops us in our tracks.</p>
+        <p>Since arriving, we have been planting woodland, restoring meadows, growing vegetables and learning — the kind of learning that only really happens by doing. It is slower than you imagine, more rewarding than you expect, and more connected to the seasons and the land than anything we had done before.</p>
+        <blockquote>"It felt like the right name for a home on the edge of things — rooted in the landscape, quietly personal, and made for slowing down."</blockquote>
+
+        <h2 id="channel">The View From the Clouds</h2>
+        <p>Our wider project became The View From the Clouds. The name came partly from a phrase that followed us for years — that we had our heads in the clouds — but mostly from the landscape itself. From here, clouds often sit low in the valley below us, shifting with the light and weather. At times, it feels as though we are looking out from the edge of the sky.</p>
+        <p>The YouTube channel shares some of that journey — woodland planting, coppicing, firewood, seasonal projects and the occasional appearance of the true star of the show, Hazel the dog. We try to share it honestly, including the bits that do not go to plan.</p>
+
+        <h2 id="hazeledge">Hazel Edge</h2>
+        <p>Hazel Edge came later, when the bungalow became part of Liddel Lodge and part of The View From the Clouds. It gave us the chance to share what we had found here with guests — not just the view, but the feeling of being somewhere real, somewhere slowly being made better.</p>
+        <p>We have tried to create a space that feels like a home rather than a rental: comfortable, considered and connected to the land around it. We hope that comes through when you stay.</p>
+
+        <h2 id="name">The name</h2>
+        <p>The name Hazel Edge reflects the place first: the young hazel trees planted nearby, the northern edge of Cumbria, and the open countryside around us.</p>
+        <p>It also carries a couple of personal meanings, quietly woven in: Hazel is our much-loved border collie, and Edge a nickname of Emma's that has followed her for longer than either of us can quite remember.</p>
+        <p>It felt like the right name for a home on the edge of things — rooted in the landscape, quietly personal, and made for slowing down.</p>
+        <p>We hope that when you stay here, you feel a little of that too: space to pause, look out, and feel the world open up around you.</p>
+
+        <div class="story-sign">Austin, Emma & Hazel</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CHANNEL -->
+<section class="channel-section">
+  <div class="channel-inner">
+    <div class="channel-img reveal"></div>
+    <div class="channel-text reveal reveal-delay-1">
+      <span class="section-label light">Follow the journey</span>
+      <h2 class="section-title">The View From the Clouds</h2>
+      <p>Our YouTube channel shares the wider story of Liddel Lodge — planting, growing, building, coppicing, and the slow work of making a smallholding from scratch.</p>
+      <p>Hazel the dog features heavily. Austin does the talking. Emma does a lot of the actual work.</p>
+      <p>It is honest, unglamorous and, we hope, worth watching — whether you are curious about smallholding life, planning your own land project, or just enjoy watching someone else do the hard bits.</p>
+      <div style="margin-top:2rem;">
+        <a href="https://youtube.com" target="_blank" class="btn btn-forest">Watch on YouTube ↗</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div>
+      <div class="footer-brand">Hazel Edge</div>
+      <div class="footer-tagline">A home on the edge of things.</div>
+      <p class="footer-desc">A private rural retreat in northern Cumbria, part of The View From the Clouds smallholding at Liddel Lodge.</p>
+    </div>
+    <div class="footer-col"><h5>The Cottage</h5><ul>
+      <li><a href='/stay'>Stay at Hazel Edge</a></li>
+      <li><a href='/stay#inside'>Inside the cottage</a></li>
+      <li><a href='/stay#dogs'>Dog-friendly info</a></li>
+      <li><a href='/stay#booking'>Book your stay</a></li>
+    </ul></div>
+    <div class="footer-col"><h5>Discover</h5><ul>
+      <li><a href='/nature'>The land & wildlife</a></li>
+      <li><a href='/sustainability'>Sustainability</a></li>
+      <li><a href='/explore'>Explore the area</a></li>
+    </ul></div>
+    <div class="footer-col"><h5>About</h5><ul>
+      <li><a href='/story'>Our story</a></li>
+      <li><a href='/faqs'>FAQs</a></li>
+      <li><a href="https://youtube.com" target="_blank">The View From the Clouds ↗</a></li>
+    </ul></div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 Hazel Edge · Liddel Lodge, Cumbria · CA6</span>
+    <div class="footer-bottom-links"><a href="#">Privacy</a><a href="#">Terms</a><a href="#">Booking conditions</a></div>
+  </div>
+</footer>
+<script>
+  const observer = new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('visible');observer.unobserve(x.target);}}),{threshold:0.1,rootMargin:'0px 0px -30px 0px'});
+  document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+</script>
+</body>
+</html>
