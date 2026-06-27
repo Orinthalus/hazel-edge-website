@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Explore the Area — Hazel Edge</title>
+  <meta name="description" content="Hadrian's Wall, Carlisle, the North Pennines, Solway coast and plenty of walking from the door. Hazel Edge is a brilliant base for border country exploration.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .explore-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 3rem; margin-top: 3rem; }
+    .explore-cat { padding: 3rem; background: var(--warm-white); border-radius: 2px; border-top: 3px solid var(--sage-light); }
+    .explore-cat h3 { font-family:'Cormorant Garamond',serif; font-size:1.5rem; font-weight:400; color:var(--charcoal); margin-bottom:1.2rem; display:flex; align-items:center; gap:0.7rem; }
+    .explore-cat ul { list-style:none; }
+    .explore-cat li { font-size:0.9rem; color:var(--body-text); padding:0.55rem 0; border-bottom:1px solid var(--cream-deep); line-height:1.6; }
+    .explore-cat li:last-child { border-bottom:none; }
+    .explore-cat li strong { color:var(--charcoal); font-weight:400; }
+    .explore-cat li span { color:var(--stone); font-size:0.8rem; }
+
+    .distances { background: var(--forest); padding: 5rem 3rem; }
+    .dist-inner { max-width: 1100px; margin: 0 auto; }
+    .dist-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 2rem; margin-top: 3rem; }
+    .dist-card { text-align:center; padding:2rem 1rem; }
+    .dist-num { font-family:'Cormorant Garamond',serif; font-size:2.8rem; font-weight:300; color:var(--warm-white); line-height:1; }
+    .dist-unit { font-size:0.75rem; color:var(--sage-light); }
+    .dist-label { font-size:0.82rem; color:rgba(250,247,242,0.55); margin-top:0.4rem; }
+
+    .slow-days { background: var(--cream-deep); padding: 6rem 3rem; }
+    .slow-inner { max-width: 700px; margin: 0 auto; text-align:center; }
+    .slow-inner h2 { font-family:'Cormorant Garamond',serif; font-size:clamp(2rem,4vw,3rem); font-weight:300; color:var(--charcoal); margin-bottom:1.5rem; }
+    .slow-inner p { font-size:0.95rem; color:var(--body-text); line-height:1.9; margin-bottom:1.2rem; }
+
+    @media(max-width:900px){
+      .explore-grid { grid-template-columns:1fr; }
+      .dist-grid { grid-template-columns:repeat(2,1fr); }
+    }
+  </style>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Orinthalus/hazel-edge-website@main/images.css"><style>
+.page-hero.light-bg,
+.page-hero.dark-bg {
+  background-image: url('https://l.icdbcdn.com/oh/1f9e6f67-fab8-4e11-95dc-cf37fc3cc0b3.jpg?w=1600');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.slow-days {
+  background-image: url('https://l.icdbcdn.com/oh/44747096-9fb6-4bcc-8392-bb1f16f18318.jpg?w=1600');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+</style></head>
+<body>
+
+<nav class="opaque">
+  <a class='nav-logo dark' href='/'>Hazel Edge</a>
+  <ul class="nav-links">
+    <li><a class='dark' href='/stay'>Stay</a></li>
+    <li><a class='dark' href='/nature'>Nature</a></li>
+    <li><a class='dark' href='/sustainability'>Sustainability</a></li>
+    <li><a class='dark active' href='/explore'>Explore</a></li>
+    <li><a class='dark' href='/story'>Our Story</a></li>
+    <li><a class='dark' href='/faqs'>FAQs</a></li>
+    <li><a class='nav-book' href='/stay#booking'>Book</a></li>
+  </ul>
+</nav>
+
+<div class="page-hero dark-bg">
+  <div class="page-hero-bg-word">Explore</div>
+  <div class="page-hero-inner">
+    <span class="page-eyebrow light">The wider world</span>
+    <h1>Explore the area</h1>
+    <p>Rural, but not remote. Hazel Edge sits at the edge of the border country — close enough to everything, far enough from everyone. A brilliant base for days out, or for simply wandering the lanes.</p>
+  </div>
+</div>
+
+<!-- DISTANCES -->
+<section class="distances">
+  <div class="dist-inner">
+    <span class="section-label light reveal">At a glance</span>
+    <h2 class="section-title light reveal">How far is everything?</h2>
+    <div class="dist-grid">
+      <div class="dist-card reveal"><div class="dist-num">15</div><div class="dist-unit">minutes</div><div class="dist-label">Carlisle city centre</div></div>
+      <div class="dist-card reveal reveal-delay-1"><div class="dist-num">20</div><div class="dist-unit">minutes</div><div class="dist-label">Hadrian's Wall</div></div>
+      <div class="dist-card reveal reveal-delay-2"><div class="dist-num">45</div><div class="dist-unit">minutes</div><div class="dist-label">Lake District fells</div></div>
+      <div class="dist-card reveal reveal-delay-3"><div class="dist-num">30</div><div class="dist-unit">minutes</div><div class="dist-label">Scottish Borders</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPLORE CATEGORIES -->
+<section class="section" style="background:var(--cream);">
+  <div class="section-inner">
+    <span class="section-label reveal">Where to go, what to do</span>
+    <h2 class="section-title reveal">Things worth your time</h2>
+    <div class="explore-grid">
+
+      <div class="explore-cat reveal" id="walks">
+        <h3>🥾 Walks & wild places</h3>
+        <ul>
+          <li><strong>Hadrian's Wall Path</strong> <span>· 20 min drive</span><br>UNESCO World Heritage Site — walk sections of the Wall with sweeping views north and south.</li>
+          <li><strong>Talkin Tarn Country Park</strong> <span>· 20 min drive</span><br>Peaceful lake and woodland walks, great for families and dogs. Café on site.</li>
+          <li><strong>North Pennines AONB</strong> <span>· 30 min drive</span><br>England's largest AONB — moorland, waterfalls and wide skies. Cross Fell is the highest point in the Pennines.</li>
+          <li><strong>Solway Coast</strong> <span>· 25 min drive</span><br>A quiet, distinctive coastline with vast estuary views, wading birds and a raw, unmanicured feel.</li>
+          <li><strong>Local lanes & footpaths</strong> <span>· from the door</span><br>Quiet roads and footpaths start close by — good for morning walks without getting in the car.</li>
+        </ul>
+      </div>
+
+      <div class="explore-cat reveal reveal-delay-1">
+        <h3>🏰 Historic border country</h3>
+        <ul>
+          <li><strong>Hadrian's Wall</strong> <span>· 20 min drive</span><br>Housesteads, Vindolanda and Birdoswald all within reach — some of the best Roman history in Britain.</li>
+          <li><strong>Carlisle Castle</strong> <span>· 15 min drive</span><br>A medieval fortress with a long and layered history — well worth an hour of your time.</li>
+          <li><strong>Lanercost Priory</strong> <span>· 20 min drive</span><br>Beautiful ruined priory in a peaceful riverside setting. Free to explore the grounds.</li>
+          <li><strong>Naworth Castle</strong> <span>· 20 min drive</span><br>Historic fortified house with an interesting history — occasional open days.</li>
+          <li><strong>Scottish Borders</strong> <span>· 30 min drive</span><br>Cross the border easily — Langholm, Gretna and Dumfries all within reach for a day out.</li>
+        </ul>
+      </div>
+
+      <div class="explore-cat reveal">
+        <h3>🍽️ Food, shops & local life</h3>
+        <ul>
+          <li><strong>Carlisle</strong> <span>· 15 min drive</span><br>A proper city — good market, independent shops, cafés and restaurants. Well worth a proper wander rather than just a supermarket run.</li>
+          <li><strong>Brampton</strong> <span>· 15 min drive</span><br>A small market town with independent shops, a good butcher, and a friendly local feel.</li>
+          <li><strong>Farm shops & delis</strong> <span>· various</span><br>Several farm shops in the area for local produce, including meat, dairy and seasonal veg.</li>
+          <li><strong>Local pubs</strong> <span>· various</span><br>Good traditional pubs within a short drive — we include a guide in your welcome information.</li>
+        </ul>
+      </div>
+
+      <div class="explore-cat reveal reveal-delay-1">
+        <h3>☔ Rainy day ideas</h3>
+        <ul>
+          <li><strong>Tullie House Museum, Carlisle</strong><br>Excellent local history and Roman collections — a genuine find, and free for much of it.</li>
+          <li><strong>Carlisle Cathedral</strong><br>One of England's smaller cathedrals but with beautiful stained glass and a peaceful atmosphere.</li>
+          <li><strong>Vindolanda Museum</strong> <span>· 35 min</span><br>One of the best Roman archaeology sites in Britain — incredible finds, brilliant interpretation.</li>
+          <li><strong>Brampton Bookshop & cafés</strong><br>A good excuse to browse and take your time. Good coffee nearby.</li>
+          <li><strong>Lake District galleries & museums</strong> <span>· 45 min</span><br>Keswick Museum, Rheged visitor centre and more if the weather closes in properly.</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- SLOW DAYS -->
+<section class="slow-days">
+  <div class="slow-inner">
+    <span class="section-label" style="display:block;text-align:center;margin-bottom:1rem;" >The best kind of day</span>
+    <h2 class="reveal">Slow days at Hazel Edge</h2>
+    <p class="reveal">A book, the view, a long lunch and nowhere to be. Some of the best days here never leave the garden.</p>
+    <p class="reveal">The outdoor bathing area, the wood burner, the herb pots by the door — Hazel Edge is designed for the kind of day where you do less than you planned and feel better for it.</p>
+    <div class="reveal" style="margin-top:2.5rem;">
+      <a class='btn btn-forest' href='/stay#booking'>Book your stay</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div>
+      <div class="footer-brand">Hazel Edge</div>
+      <div class="footer-tagline">A home on the edge of things.</div>
+      <p class="footer-desc">A private rural retreat in northern Cumbria, part of The View From the Clouds smallholding at Liddel Lodge.</p>
+    </div>
+    <div class="footer-col"><h5>The Cottage</h5><ul>
+      <li><a href='/stay'>Stay at Hazel Edge</a></li>
+      <li><a href='/stay#inside'>Inside the cottage</a></li>
+      <li><a href='/stay#dogs'>Dog-friendly info</a></li>
+      <li><a href='/stay#booking'>Book your stay</a></li>
+    </ul></div>
+    <div class="footer-col"><h5>Discover</h5><ul>
+      <li><a href='/nature'>The land & wildlife</a></li>
+      <li><a href='/sustainability'>Sustainability</a></li>
+      <li><a href='/explore'>Explore the area</a></li>
+    </ul></div>
+    <div class="footer-col"><h5>About</h5><ul>
+      <li><a href='/story'>Our story</a></li>
+      <li><a href='/faqs'>FAQs</a></li>
+      <li><a href="https://youtube.com" target="_blank">The View From the Clouds ↗</a></li>
+    </ul></div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 Hazel Edge · Liddel Lodge, Cumbria · CA6</span>
+    <div class="footer-bottom-links"><a href="#">Privacy</a><a href="#">Terms</a><a href="#">Booking conditions</a></div>
+  </div>
+</footer>
+<script>
+  const observer = new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('visible');observer.unobserve(x.target);}}),{threshold:0.1,rootMargin:'0px 0px -30px 0px'});
+  document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+</script>
+</body>
+</html>
