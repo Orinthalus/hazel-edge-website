@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stay at Hazel Edge — Book Your Visit</title>
+  <meta name="description" content="Everything you need to know about staying at Hazel Edge — rooms, what's included, dog-friendly details and how to book.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* ── OVERVIEW GRID ── */
+    .overview-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start; margin-top: 1rem;
+    }
+    .overview-facts { display: flex; flex-direction: column; gap: 1.2rem; }
+    .overview-fact {
+      display: flex; justify-content: space-between; align-items: baseline;
+      padding: 1rem 0; border-bottom: 1px solid var(--cream-deep);
+      font-size: 0.9rem;
+    }
+    .overview-fact:first-child { border-top: 1px solid var(--cream-deep); }
+    .fact-key { color: var(--stone); font-size: 0.78rem; letter-spacing: 0.08em; text-transform: uppercase; }
+    .fact-val { color: var(--charcoal); font-weight: 400; text-align: right; }
+    .overview-text p { font-size: 0.95rem; color: var(--body-text); line-height: 1.9; margin-bottom: 1.2rem; }
+
+    /* ── ROOMS ── */
+    .rooms { background: var(--warm-white); }
+    .rooms-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 2rem; margin-top: 3rem; }
+    .room-card { border: 1px solid var(--cream-deep); border-radius: 2px; overflow: hidden; transition: box-shadow 0.3s; }
+    .room-card:hover { box-shadow: 0 8px 30px rgba(58,78,52,0.08); }
+    .room-img { height: 200px; }
+    .living-room { background: linear-gradient(145deg,#6b4a3a,#9e7060,#c4a882); }
+    .kitchen-room { background: linear-gradient(145deg,#c4a882,#d6c5aa,#f0e5d2); }
+    .bedroom1 { background: linear-gradient(145deg,#8fafc0,#b5c8d8,#dce8e0); }
+    .bedroom2 { background: linear-gradient(145deg,#9e8b75,#c9b99f,#e8d5be); }
+    .bedroom3 { background: linear-gradient(145deg,#7d9470,#b5c8ae,#d6dfce); }
+    .wetroom { background: linear-gradient(145deg,#4e6544,#7d9470,#b5c8ae); }
+    .room-info { padding: 1.8rem; }
+    .room-info h3 { font-size: 1.25rem; font-weight: 400; margin-bottom: 0.6rem; }
+    .room-info p { font-size: 0.85rem; color: var(--body-text); line-height: 1.75; }
+    .rooms-wide { grid-template-columns: repeat(2,1fr); }
+
+    /* ── INCLUDED ── */
+    .included-grid {
+      display: grid; grid-template-columns: repeat(3,1fr); gap: 2rem; margin-top: 3rem;
+    }
+    .included-cat h4 {
+      font-family: 'Cormorant Garamond', serif; font-size: 1.15rem; font-weight: 400;
+      color: var(--forest); margin-bottom: 1rem;
+      padding-bottom: 0.6rem; border-bottom: 1px solid var(--mist);
+    }
+    .included-cat ul { list-style: none; }
+    .included-cat li {
+      font-size: 0.87rem; color: var(--body-text);
+      padding: 0.4rem 0; padding-left: 1.2rem; position: relative;
+    }
+    .included-cat li::before { content: '—'; position: absolute; left: 0; color: var(--sage); }
+
+    /* ── GOOD TO KNOW ── */
+    .good-to-know { background: var(--cream-deep); }
+    .gk-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 2rem; margin-top: 3rem; }
+    .gk-item {
+      padding: 2rem; background: var(--warm-white); border-radius: 2px;
+      border-left: 3px solid var(--sage-light);
+    }
+    .gk-item h4 { font-family:'Cormorant Garamond',serif; font-size:1.1rem; font-weight:400; color:var(--forest); margin-bottom:0.6rem; }
+    .gk-item p { font-size:0.87rem; color:var(--body-text); line-height:1.75; }
+
+    /* ── DOGS ── */
+    .dogs-section { background: var(--warm-white); }
+    .dogs-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; margin-top: 2rem; }
+    .dogs-img-stay {
+      height: 400px; border-radius: 2px;
+      background: linear-gradient(145deg,#9e8b75,#c9b99f,#e8d5be,#7d9470);
+      position: relative;
+    }
+    .dogs-img-stay::after { content: 'Hazel'; position: absolute; bottom:1rem; right:1.2rem; font-family:'Cormorant Garamond',serif; font-style:italic; font-size:0.95rem; color:rgba(250,247,242,0.55); }
+    .dogs-text p { font-size:0.93rem; color:var(--body-text); line-height:1.9; margin-bottom:1.1rem; }
+    .dog-rules { margin-top:1.8rem; padding:1.8rem 2rem; background:var(--cream); border-radius:2px; border-left:3px solid var(--sage); }
+    .dog-rules h5 { font-size:0.68rem; letter-spacing:0.18em; text-transform:uppercase; color:var(--forest); margin-bottom:0.9rem; }
+    .dog-rules ul { list-style:none; }
+    .dog-rules li { font-size:0.87rem; color:var(--body-text); padding:0.35rem 0; padding-left:1.2rem; position:relative; }
+    .dog-rules li::before { content:'—'; position:absolute; left:0; color:var(--sage); }
+
+    /* ── BOOKING ── */
+    .booking { background: var(--forest); padding: 6rem 3rem; }
+    .booking-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start; }
+    .booking-text .section-title { color: var(--warm-white); }
+    .booking-text p { font-size: 0.95rem; color: rgba(250,247,242,0.75); line-height: 1.9; margin-bottom: 1.2rem; }
+    .booking-channels { display: flex; flex-direction: column; gap: 1rem; margin-top: 2rem; }
+    .channel {
+      display: flex; align-items: center; gap: 1rem;
+      padding: 1.2rem 1.5rem;
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 2px; text-decoration: none;
+      transition: background 0.3s;
+    }
+    .channel:hover { background: rgba(255,255,255,0.12); }
+    .channel-icon { font-size: 1.4rem; }
+    .channel-name { font-family:'Cormorant Garamond',serif; font-size:1.1rem; font-weight:400; color:var(--warm-white); }
+    .channel-note { font-size: 0.78rem; color: rgba(250,247,242,0.5); }
+    .booking-widget {
+      background: var(--warm-white); border-radius: 2px; padding: 2.5rem;
+    }
+    .widget-title { font-family:'Cormorant Garamond',serif; font-size:1.4rem; color:var(--charcoal); margin-bottom:1.5rem; }
+    .widget-field { margin-bottom: 1rem; }
+    .widget-field label { display:block; font-size:0.68rem; letter-spacing:0.15em; text-transform:uppercase; color:var(--stone); margin-bottom:0.4rem; }
+    .widget-field input, .widget-field select {
+      width:100%; padding:0.7rem 0.9rem;
+      border:1px solid var(--cream-deep); background:var(--cream);
+      font-family:'Jost',sans-serif; font-size:0.88rem; color:var(--charcoal);
+      border-radius:1px;
+    }
+    .widget-note { font-size:0.75rem; color:var(--stone); text-align:center; margin-top:1.2rem; font-style:italic; line-height:1.6; }
+
+    @media(max-width:900px){
+      .overview-grid,.dogs-layout,.booking-inner { grid-template-columns:1fr; gap:3rem; }
+      .rooms-grid, .included-grid, .gk-grid { grid-template-columns:1fr; }
+    }
+  </style>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Orinthalus/hazel-edge-website@main/images.css"><style>
+.page-hero.light-bg,
+.page-hero.dark-bg {
+  background-image: url('https://l.icdbcdn.com/oh/1f9e6f67-fab8-4e11-95dc-cf37fc3cc0b3.jpg?w=1600');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.slow-days {
+  background-image: url('https://l.icdbcdn.com/oh/44747096-9fb6-4bcc-8392-bb1f16f18318.jpg?w=1600');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+</style></head>
+<body>
+
+<nav class="opaque" id="mainNav">
+  <a class='nav-logo dark' href='/'>Hazel Edge</a>
+  <ul class="nav-links">
+    <li><a class='dark active' href='/stay'>Stay</a></li>
+    <li><a class='dark' href='/nature'>Nature</a></li>
+    <li><a class='dark' href='/sustainability'>Sustainability</a></li>
+    <li><a class='dark' href='/explore'>Explore</a></li>
+    <li><a class='dark' href='/story'>Our Story</a></li>
+    <li><a class='dark' href='/faqs'>FAQs</a></li>
+    <li><a href="#booking" class="nav-book">Book</a></li>
+  </ul>
+</nav>
+
+<div class="page-hero light-bg">
+  <div class="page-hero-bg-word">Stay</div>
+  <div class="page-hero-inner">
+    <span class="page-eyebrow dark">The cottage</span>
+    <h1>Stay at Hazel Edge</h1>
+    <p>Three bedrooms, wide views and everything you need for a comfortable, easy stay — whether you are here for a long weekend or a proper week away.</p>
+  </div>
+</div>
+
+<!-- OVERVIEW -->
+<section class="section">
+  <div class="section-inner">
+    <span class="section-label reveal">At a glance</span>
+    <div class="overview-grid">
+      <div class="overview-facts reveal">
+        <div class="overview-fact"><span class="fact-key">Property type</span><span class="fact-val">Detached bungalow</span></div>
+        <div class="overview-fact"><span class="fact-key">Sleeps</span><span class="fact-val">Up to 6 guests</span></div>
+        <div class="overview-fact"><span class="fact-key">Bedrooms</span><span class="fact-val">3 bedrooms</span></div>
+        <div class="overview-fact"><span class="fact-key">Bathrooms</span><span class="fact-val">Wet room with waterfall shower</span></div>
+        <div class="overview-fact"><span class="fact-key">Dogs</span><span class="fact-val">Welcome · max 2</span></div>
+        <div class="overview-fact"><span class="fact-key">Parking</span><span class="fact-val">Private · off-road</span></div>
+        <div class="overview-fact"><span class="fact-key">Check-in</span><span class="fact-val">From 4 pm</span></div>
+        <div class="overview-fact"><span class="fact-key">Check-out</span><span class="fact-val">By 10 am</span></div>
+        <div class="overview-fact"><span class="fact-key">Minimum stay</span><span class="fact-val">2 nights (3 nights peak)</span></div>
+        <div class="overview-fact"><span class="fact-key">EV charging</span><span class="fact-val">Available on site</span></div>
+        <div class="overview-fact"><span class="fact-key">WiFi</span><span class="fact-val">Fibre broadband</span></div>
+        <div class="overview-fact"><span class="fact-key">Heating</span><span class="fact-val">Air source heat pump</span></div>
+      </div>
+      <div class="overview-text reveal reveal-delay-1">
+        <h2 class="section-title" style="margin-bottom:1.2rem;">A warm and comfortable base</h2>
+        <p>Hazel Edge is a three-bedroom bungalow set in private grounds on the edge of our smallholding in northern Cumbria. It sits above a wide open valley with views across the border country — the kind of landscape that makes you stop and look.</p>
+        <p>Inside, it is warm, well-equipped and designed for easy living. You have everything you need for a relaxed stay, with the feel of a home rather than a rental.</p>
+        <p>Outside, there is a private enclosed garden, an outdoor bathing area, and the wider countryside beyond. Rural, but not remote — Carlisle is fifteen minutes away.</p>
+        <div style="margin-top:2rem;">
+          <a href="#booking" class="btn btn-forest">Check Availability</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ROOMS -->
+<section class="section rooms" id="inside">
+  <div class="section-inner">
+    <span class="section-label reveal">Room by room</span>
+    <h2 class="section-title reveal">Inside the cottage</h2>
+    <p class="section-intro reveal">Every room at Hazel Edge has been put together with care — comfortable, practical and with a few small touches that make a difference.</p>
+    <div class="rooms-grid">
+      <div class="room-card reveal">
+        <div class="room-img living-room"></div>
+        <div class="room-info">
+          <h3>Living room</h3>
+          <p>A warm, comfortable space to gather. Wood burner for cooler evenings, good seating, and views across the countryside. A place to settle in and slow down.</p>
+        </div>
+      </div>
+      <div class="room-card reveal reveal-delay-1">
+        <div class="room-img kitchen-room"></div>
+        <div class="room-info">
+          <h3>Kitchen & dining</h3>
+          <p>Open-plan and well-equipped. Everything you need for proper breakfasts, long lunches and easy evening meals — with enough room for everyone around the table.</p>
+        </div>
+      </div>
+      <div class="room-card reveal reveal-delay-2">
+        <div class="room-img bedroom1"></div>
+        <div class="room-info">
+          <h3>Bedroom one</h3>
+          <p>Double room with restful, simple décor. Comfortable bed, good bedding, blackout blinds and a quiet that makes it easy to sleep well.</p>
+        </div>
+      </div>
+      <div class="room-card reveal">
+        <div class="room-img bedroom2"></div>
+        <div class="room-info">
+          <h3>Bedroom two</h3>
+          <p>Twin room, ideal for children or friends. Practical, comfortable and calm — with everything you need for a good night.</p>
+        </div>
+      </div>
+      <div class="room-card reveal reveal-delay-1">
+        <div class="room-img bedroom3"></div>
+        <div class="room-info">
+          <h3>Bedroom three</h3>
+          <p>Double or twin room that can be configured to suit your group. Light and peaceful, with space to unpack and settle in.</p>
+        </div>
+      </div>
+      <div class="room-card reveal reveal-delay-2">
+        <div class="room-img wetroom"></div>
+        <div class="room-info">
+          <h3>Wet room</h3>
+          <p>A clean, calm space with a waterfall-style shower and separate hand shower. Eco-conscious toiletries provided. Practical and considered in equal measure.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INCLUDED -->
+<section class="section" style="background:var(--cream);">
+  <div class="section-inner">
+    <span class="section-label reveal">What you get</span>
+    <h2 class="section-title reveal">What's included</h2>
+    <p class="section-intro reveal">We want your arrival to feel effortless — so we have thought carefully about what should be waiting for you.</p>
+    <div class="included-grid">
+      <div class="included-cat reveal">
+        <h4>On arrival</h4>
+        <ul>
+          <li>Welcome tray — tea, coffee, hot chocolate</li>
+          <li>Fresh milk in the fridge</li>
+          <li>Local treats to get you started</li>
+          <li>Herbs from the garden when available</li>
+          <li>Logs for the wood burner</li>
+          <li>Welcome information & local guide</li>
+        </ul>
+      </div>
+      <div class="included-cat reveal reveal-delay-1">
+        <h4>Linens & toiletries</h4>
+        <ul>
+          <li>Freshly laundered bedding & towels</li>
+          <li>Eco-conscious refillable toiletries</li>
+          <li>Soft eco toilet paper</li>
+          <li>Eco cleaning products</li>
+          <li>Fairtrade tea, coffee & hot chocolate</li>
+          <li>Extra blankets & pillows</li>
+        </ul>
+      </div>
+      <div class="included-cat reveal reveal-delay-2">
+        <h4>Kitchen & outside</h4>
+        <ul>
+          <li>Well-equipped kitchen</li>
+          <li>Basic pantry supplies</li>
+          <li>Outdoor bathing area access</li>
+          <li>Private enclosed garden</li>
+          <li>Dog towels & mat provided</li>
+          <li>Fibre WiFi · EV charger access</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GOOD TO KNOW -->
+<section class="section good-to-know">
+  <div class="section-inner">
+    <span class="section-label reveal">Practical details</span>
+    <h2 class="section-title reveal">Good to know</h2>
+    <p class="section-intro reveal">We believe in being straightforward. These are the things worth knowing before you arrive.</p>
+    <div class="gk-grid">
+      <div class="gk-item reveal">
+        <h4>💧 Spring water</h4>
+        <p>Hazel Edge is supplied by a private spring on the hill — fresh, clean and natural. Because it is not a mains supply, we ask guests to use water thoughtfully. Not anxiously, just with the awareness that it is something precious.</p>
+      </div>
+      <div class="gk-item reveal reveal-delay-1">
+        <h4>🚽 Septic tank</h4>
+        <p>Hazel Edge is on a septic tank. Please flush only toilet paper — nothing else. Bags and a bin are provided. This is a simple but important way to help us care for the land and water around us.</p>
+      </div>
+      <div class="gk-item reveal">
+        <h4>📍 Rural location</h4>
+        <p>Hazel Edge is a working smallholding setting. It is quiet, private and genuinely rural — there will be birdsong, weather and the sounds of the countryside. The nearest shops are fifteen minutes away in Carlisle.</p>
+      </div>
+      <div class="gk-item reveal reveal-delay-1">
+        <h4>📶 WiFi & signal</h4>
+        <p>Fibre broadband is available and works well. Mobile signal varies by network — we recommend checking yours in advance, though WiFi calling works reliably throughout.</p>
+      </div>
+      <div class="gk-item reveal">
+        <h4>♿ Accessibility</h4>
+        <p>As a bungalow, Hazel Edge has no stairs. The wet room has step-free access. Some outdoor areas have uneven ground. Please contact us if you have specific requirements — we will be as helpful and honest as we can.</p>
+      </div>
+      <div class="gk-item reveal reveal-delay-1">
+        <h4>🌡️ Heating</h4>
+        <p>Hazel Edge is heated by an efficient air source heat pump. The cottage warms up quickly and stays comfortable throughout the year. The wood burner in the living room is there for atmosphere as much as warmth.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DOGS -->
+<section class="section dogs-section" id="dogs">
+  <div class="section-inner">
+    <div class="dogs-layout">
+      <div class="dogs-text reveal">
+        <span class="section-label">Four legs welcome</span>
+        <h2 class="section-title">Bring the dog</h2>
+        <p>Dogs are genuinely welcome at Hazel Edge — not as an afterthought, but as part of the welcome. The garden is enclosed, the setting is rural, and the countryside around is made for dogs who like to roam.</p>
+        <p>We accept up to two dogs per stay. There is no extra charge, but we do ask that they are kept off the furniture and beds. Dog towels and a mat are provided for muddy arrivals.</p>
+        <p>Nearby walks start from the door, and longer routes — including sections of Hadrian's Wall and the Eden Valley paths — are within easy reach.</p>
+        <div class="dog-rules">
+          <h5>Dog-friendly details</h5>
+          <ul>
+            <li>Private enclosed garden — safe off-lead space</li>
+            <li>Dog towels and mat provided</li>
+            <li>Dogs welcome in all rooms except on furniture and beds</li>
+            <li>Please clean up in the garden and on the land</li>
+            <li>Keep dogs on leads on the wider smallholding</li>
+            <li>Maximum 2 dogs per stay</li>
+          </ul>
+        </div>
+      </div>
+      <div class="dogs-img-stay reveal reveal-delay-1"></div>
+    </div>
+  </div>
+</section>
+
+<!-- BOOKING -->
+<section class="booking" id="booking">
+  <div class="booking-inner">
+    <div class="booking-text">
+      <span class="section-label light">Reserve your stay</span>
+      <h2 class="section-title">Book Hazel Edge</h2>
+      <p>Book directly here for the best rate — no platform commission, and you deal with us personally.</p>
+      <p>Hazel Edge is also listed on Airbnb and Booking.com. All calendars are kept in sync, so availability is always accurate wherever you book.</p>
+      <div class="booking-channels">
+        <a href="#" class="channel">
+          <div class="channel-icon">🏡</div>
+          <div><div class="channel-name">Book direct</div><div class="channel-note">Best rate · no fees · contact us directly</div></div>
+        </a>
+        <a href="#" class="channel">
+          <div class="channel-icon">🅰️</div>
+          <div><div class="channel-name">Airbnb</div><div class="channel-note">Book via Airbnb for guest protection</div></div>
+        </a>
+        <a href="#" class="channel">
+          <div class="channel-icon">🔵</div>
+          <div><div class="channel-name">Booking.com</div><div class="channel-note">Available on Booking.com</div></div>
+        </a>
+      </div>
+    </div>
+    <div class="booking-widget reveal">
+      <div class="widget-title">Check availability</div>
+      <div class="widget-field">
+        <label>Arrival date</label>
+        <input type="date">
+      </div>
+      <div class="widget-field">
+        <label>Departure date</label>
+        <input type="date">
+      </div>
+      <div class="widget-field">
+        <label>Number of guests</label>
+        <select>
+          <option>1 guest</option><option selected>2 guests</option>
+          <option>3 guests</option><option>4 guests</option>
+          <option>5 guests</option><option>6 guests</option>
+        </select>
+      </div>
+      <div class="widget-field">
+        <label>Dogs coming?</label>
+        <select><option>No dogs</option><option>1 dog</option><option>2 dogs</option></select>
+      </div>
+      <div style="margin-top:1.2rem;">
+        <a href="#" class="btn btn-forest" style="display:block;text-align:center;">Search dates</a>
+      </div>
+      <p class="widget-note">Booking powered by Smoobu · Availability synced with Airbnb and Booking.com · No double-bookings</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div>
+      <div class="footer-brand">Hazel Edge</div>
+      <div class="footer-tagline">A home on the edge of things.</div>
+      <p class="footer-desc">A private rural retreat in northern Cumbria, part of The View From the Clouds smallholding at Liddel Lodge.</p>
+    </div>
+    <div class="footer-col"><h5>The Cottage</h5><ul>
+      <li><a href='/stay'>Stay at Hazel Edge</a></li>
+      <li><a href='/stay#inside'>Inside the cottage</a></li>
+      <li><a href='/stay#dogs'>Dog-friendly info</a></li>
+      <li><a href='/stay#booking'>Book your stay</a></li>
+    </ul></div>
+    <div class="footer-col"><h5>Discover</h5><ul>
+      <li><a href='/nature'>The land & wildlife</a></li>
+      <li><a href='/sustainability'>Sustainability</a></li>
+      <li><a href='/explore'>Explore the area</a></li>
+    </ul></div>
+    <div class="footer-col"><h5>About</h5><ul>
+      <li><a href='/story'>Our story</a></li>
+      <li><a href='/faqs'>FAQs</a></li>
+      <li><a href="https://youtube.com" target="_blank">The View From the Clouds ↗</a></li>
+    </ul></div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 Hazel Edge · Liddel Lodge, Cumbria · CA6</span>
+    <div class="footer-bottom-links"><a href="#">Privacy</a><a href="#">Terms</a><a href="#">Booking conditions</a></div>
+  </div>
+</footer>
+
+<script>
+  const observer = new IntersectionObserver(e => e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('visible');observer.unobserve(x.target);}}),{threshold:0.1,rootMargin:'0px 0px -30px 0px'});
+  document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+</script>
+</body>
+</html>
